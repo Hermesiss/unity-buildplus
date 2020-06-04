@@ -1,0 +1,18 @@
+
+{
+    "name" : "com.default-company.com.luminary.buildplus",
+    "version" : "1.0.0",
+    "displayName" : "com.luminary.buildplus",
+    "description" : "Build+ is a versioning utility for Unity projects. If you're looking to:\r\n\r\n* Automatically generate release notes with each build\r\n* Keep track of release notes in one place\r\n* Easily report the latest version number in your app\r\n* Easily merge all of your developers' release notes\r\n\r\nThen you should get Build+!",
+    "unity"       : "2019.2",
+    "unityRelease" : "",
+    "dependencies" : {
+    },
+    "keywords"     : [
+    ],
+    "author"       : {
+        "name" : "LUMINARY",
+        "email" : "",
+        "url"   : "https://assetstore.unity.com/packages/tools/utilities/build-3720"
+    }
+}

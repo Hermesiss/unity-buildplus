@@ -1,0 +1,16 @@
+{
+    "name": "com.luminary.buildplus.editor",
+    "references": [
+        "GUID:6f198d82a3b69a04bad1d78051ac4af9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

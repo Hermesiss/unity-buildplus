@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 6352fd202d190f64eac8fe5ca8d261b7
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 305d72b64a2242c0b6ff1d70a6bc89f4, type: 3}
+  name: com.default-company.com.luminary.buildplus
+  version: 1.0.0
+  displayName: com.luminary.buildplus
+  description: 
+  unity: 2019.2
+  unityRelease: 
+  dependencies:
+    keyValuePairs: []
+  keywords: []
+  author:
+    name: LUMINARY
+    email: 
+    url: https://assetstore.unity.com/packages/tools/utilities/build-3720
+  autoExportJson: 1
+  registryUrl: https://registry.my-company.com
