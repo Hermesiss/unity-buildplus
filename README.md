@@ -6,9 +6,30 @@ A UPM version of [Build+](https://assetstore.unity.com/packages/tools/utilities/
 
 ## Installation
 
+You have several options
+
+### From registry
+
+First, you need to add a scoped registry to `Packages/manifest.json`: 
+```json
+"scopedRegistries": [
+    {
+      "name": "trismegistus",
+      "url": "https://npm.fury.io/trismegistus/",
+      "scopes": [
+        "trismegistus.unity"
+      ]
+    }
+]
+```
+
+Then add `"trismegistus.unity.buildplus": "1.0.0"` with latest version
+
+### From git url
+
 1. Open `Window/Package manager`
 2. `+`, `Add from git URL`
-3. Enter `https://github.com/Hermesiss/com.luminary.buildplus.git?path=/Assets/BuildPlus`
+3. Enter `https://github.com/Hermesiss/unity-buildplus.git?path=/Assets/BuildPlus`
 
 ## Readme from creator
 
