@@ -1,0 +1,3 @@
+builds:
+  dir: Assets/BuildPlus
+  pack: npm
