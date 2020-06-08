@@ -50,7 +50,12 @@ namespace BuildPlus
 		public override void PreSerialize()
 		{
 			base.PreSerialize();
-			dateString = date.ToString(Version.kDateFormat);
+			FillDate();
+		}
+
+		public void FillDate() {
+			date = DateTime.ParseExact(dateString, kDateFormat, null);
+			//dateString = date.ToString(Version.kDateFormat);
 		}
 	}
 }

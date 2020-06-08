@@ -15,24 +15,6 @@ MonoBehaviour:
   build:
     xmlVersion: 0
     versions:
-    - major: 1
-      minor: 0
-      build: 1
-      revision: 
-      dateString: 2020.06.08.0821
-      notes:
-      - category: 2
-        description: Load build info from Asset if Xml is deleted
-      - category: 6
-        description: Move to Packages
-    - major: 1
-      minor: 0
-      build: 0
-      revision: 
-      dateString: 2020.06.06.1000
-      notes:
-      - category: 6
-        description: Obtained
     - major: 0
       minor: 0
       build: 5
@@ -94,20 +76,17 @@ MonoBehaviour:
       notes:
       - category: 1
         description: Initial version
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.1 (2020.06.08.0821)\r\n  IMPROVEMENTS\r\n   
-      * Load build info from Asset if Xml is deleted\r\n  GENERAL\r\n    * Move to
-      Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n  GENERAL\r\n    * Obtained\r\n\r\nv0.0.5
-      (2013.05.15.1154)\r\n  FEATURES\r\n    * Added Export button for saving release
-      notes to disk separately\r\n  IMPROVEMENTS\r\n    * XML is now serialized w/
-      indents, so that it is easier to merge\r\n    * Latest version's date/time
-      is updated automatically when building\r\n  FIXES\r\n    * Fixed compilation
-      warning in BuildPlusEditor\r\n    * Fixed release notes not writing correctly
-      for iOS builds\r\n  CHANGES\r\n    * Save now calls AssetDatabase.SaveAssets()
-      so that _BuildPlus.asset is saved\r\n\r\nv0.0.4 (2012.06.26.0859)\r\n  FIXES\r\n   
-      * Release notes weren't be written to txt file correctly\r\n  GENERAL\r\n   
-      * Added ReadMe.txt and ReleaseNotes.txt for Asset Store submission\r\n\r\nv0.0.3
-      (2012.06.22.1203)\r\n  FEATURES\r\n    * ReleaseNotes are now saved into the
-      serialized version\r\n  IMPROVEMENTS\r\n    * CurrentVersion is now expanded
-      by default\r\n  FIXES\r\n    * Reload issue in the editor w/ dates\r\n\r\nv0.0.2
-      (2012.06.22.0109)\r\n  IMPROVEMENTS\r\n    * Cleaned up release notes output\r\n\r\nv0.0.1
-      (2012.06.22.0059)\r\n  FEATURES\r\n    * Initial version\r\n\r\n"
+    releaseNotes: "RELEASE NOTES\n\nv0.0.5 (2013.05.15.1154)\n  FEATURES\n    * Added
+      Export button for saving release notes to disk separately\n  IMPROVEMENTS\n   
+      * XML is now serialized w/ indents, so that it is easier to merge\n    * Latest
+      version's date/time is updated automatically when building\n  FIXES\n    *
+      Fixed compilation warning in BuildPlusEditor\n    * Fixed release notes not
+      writing correctly for iOS builds\n  CHANGES\n    * Save now calls AssetDatabase.SaveAssets()
+      so that _BuildPlus.asset is saved\n\nv0.0.4 (2012.06.26.0859)\n  FIXES\n   
+      * Release notes weren't be written to txt file correctly\n  GENERAL\n    *
+      Added ReadMe.txt and ReleaseNotes.txt for Asset Store submission\n\nv0.0.3
+      (2012.06.22.1203)\n  FEATURES\n    * ReleaseNotes are now saved into the serialized
+      version\n  IMPROVEMENTS\n    * CurrentVersion is now expanded by default\n 
+      FIXES\n    * Reload issue in the editor w/ dates\n\nv0.0.2 (2012.06.22.0109)\n 
+      IMPROVEMENTS\n    * Cleaned up release notes output\n\nv0.0.1 (2012.06.22.0059)\n 
+      FEATURES\n    * Initial version\n\n"

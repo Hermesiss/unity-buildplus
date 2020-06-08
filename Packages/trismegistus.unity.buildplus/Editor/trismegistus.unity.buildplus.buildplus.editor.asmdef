@@ -1,5 +1,5 @@
 {
-    "name": "com.luminary.buildplus.editor",
+    "name": "trismegistus.unity.buildplus.editor",
     "references": [
         "GUID:6f198d82a3b69a04bad1d78051ac4af9"
     ],
@@ -12,5 +12,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }

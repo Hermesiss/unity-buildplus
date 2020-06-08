@@ -4,14 +4,142 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
+      <build>1</build>
+      <revision />
+      <date>2020-06-08T08:21:00</date>
+      <dateString>2020.06.08.0821</dateString>
+      <notes>
+        <Note>
+          <category>Improvements</category>
+          <description>Load build info from Asset if Xml is deleted</description>
+        </Note>
+        <Note>
+          <category>General</category>
+          <description>Move to Packages</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
       <build>0</build>
       <revision />
-      <date>2020-06-04T17:46:00.1796201+04:00</date>
-      <dateString>2020.06.04.1746</dateString>
+      <date>2020-06-06T10:00:00</date>
+      <dateString>2020.06.06.1000</dateString>
       <notes>
         <Note>
           <category>General</category>
-          <description>Init</description>
+          <description>Obtained</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>0</major>
+      <minor>0</minor>
+      <build>5</build>
+      <revision />
+      <date>2013-05-15T11:54:00</date>
+      <dateString>2013.05.15.1154</dateString>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Added Export button for saving release notes to disk separately</description>
+        </Note>
+        <Note>
+          <category>Improvements</category>
+          <description>XML is now serialized w/ indents, so that it is easier to merge</description>
+        </Note>
+        <Note>
+          <category>Improvements</category>
+          <description>Latest version's date/time is updated automatically when building</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Fixed compilation warning in BuildPlusEditor</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Fixed release notes not writing correctly for iOS builds</description>
+        </Note>
+        <Note>
+          <category>Changes</category>
+          <description>Save now calls AssetDatabase.SaveAssets() so that _BuildPlus.asset is saved</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>0</major>
+      <minor>0</minor>
+      <build>4</build>
+      <revision />
+      <date>2012-06-26T08:59:00</date>
+      <dateString>2012.06.26.0859</dateString>
+      <notes>
+        <Note>
+          <category>Fixes</category>
+          <description>Release notes weren't be written to txt file correctly</description>
+        </Note>
+        <Note>
+          <category>General</category>
+          <description>Added ReadMe.txt and ReleaseNotes.txt for Asset Store submission</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>0</major>
+      <minor>0</minor>
+      <build>3</build>
+      <revision />
+      <date>2012-06-22T12:03:00</date>
+      <dateString>2012.06.22.1203</dateString>
+      <notes>
+        <Note>
+          <category>Hidden</category>
+          <description>Added IsDirty()</description>
+        </Note>
+        <Note>
+          <category>Hidden</category>
+          <description>Fixed BuildSO not being saved</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>ReleaseNotes are now saved into the serialized version</description>
+        </Note>
+        <Note>
+          <category>Improvements</category>
+          <description>CurrentVersion is now expanded by default</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Reload issue in the editor w/ dates</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>0</major>
+      <minor>0</minor>
+      <build>2</build>
+      <revision />
+      <date>2012-06-22T01:09:00</date>
+      <dateString>2012.06.22.0109</dateString>
+      <notes>
+        <Note>
+          <category>Improvements</category>
+          <description>Cleaned up release notes output</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>0</major>
+      <minor>0</minor>
+      <build>1</build>
+      <revision />
+      <date>2012-06-22T00:59:00</date>
+      <dateString>2012.06.22.0059</dateString>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Initial version</description>
         </Note>
       </notes>
     </Version>
