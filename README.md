@@ -11,11 +11,12 @@ You have several options
 ### From registry
 
 First, you need to add a scoped registry to `Packages/manifest.json`: 
+
 ```json
 "scopedRegistries": [
     {
       "name": "trismegistus",
-      "url": "https://npm.fury.io/trismegistus/",
+      "url": "http://upm.trismegistus.tech:4873/",
       "scopes": [
         "trismegistus.unity"
       ]
@@ -23,7 +24,7 @@ First, you need to add a scoped registry to `Packages/manifest.json`:
 ]
 ```
 
-Then add `"trismegistus.unity.buildplus": "1.0.0"` with latest version
+Then open `Window/Package manager`, `All packages`, and install `Trismegistus Build+`
 
 ### From git url
 

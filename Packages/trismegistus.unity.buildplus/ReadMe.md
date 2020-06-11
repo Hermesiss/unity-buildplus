@@ -1,26 +1,54 @@
-Build+ Unity Extension
-----------------------
-Build+ can help you to version your app in a straight-forward way and avoid some of the headaches with maintaining
-release notes outside of the development environment. With Build+ you can even include your release notes in the
-app itself! As Build+ evolves, additional useful features will be added to automating your builds.
+# Build+ Unity Extension
 
-Launch Build+ by selecting File->Build+...
+## What is this?
 
-When you save you'll see a _BuildPlus.xml and a _BuildPlus.asset added to the root of your Assets/ folder. The xml is 
-used only for easy merging. The asset file is a binary serialized version that you can use directly in your app for 
-showing the version number/release notes. An example of this is shown in BuildPlus/Example/Example.unity.
+A UPM version of [Build+](https://assetstore.unity.com/packages/tools/utilities/build-3720). There's no way to contact its owner : (
+
+## Installation
+
+You have several options
+
+### From registry
+
+First, you need to add a scoped registry to `Packages/manifest.json`: 
+
+```json
+"scopedRegistries": [
+    {
+      "name": "trismegistus",
+      "url": "http://upm.trismegistus.tech:4873/",
+      "scopes": [
+        "trismegistus.unity"
+      ]
+    }
+]
+```
+
+Then open `Window/Package manager`, `All packages`, and install `Trismegistus Build+`
+
+### From git url
+
+1. Open `Window/Package manager`
+2. `+`, `Add from git URL`
+3. Enter `https://github.com/Hermesiss/unity-buildplus.git?path=/Assets/BuildPlus`
+
+## Readme from creator
+
+Build+ can help you to version your app in a straight-forward way and avoid some of the headaches with maintaining release notes outside of the development environment. With Build+ you can even include your release notes in the app itself! As Build+ evolves, additional useful features will be added to automating your builds.
+
+Launch Build+ by selecting `File->Build+...`
+
+When you save you'll see a _BuildPlus.xml and a _BuildPlus.asset added to the root of your Assets/ folder. The xml is used only for easy merging. The asset file is a binary serialized version that you can use directly in your app for showing the version number/release notes. An example of this is shown in `BuildPlus/Example/Example.unity`.
 
 Suggested workflow: 
-1. All developers on the team can add their significant changes to the release notes and check in the 
-_BuildPlus.xml/asset along with the changed files. This should be done at the current version shown in Build+.
-2. When a build is made and released, the developer who makes the build should increment the version number and check
-in _BuildPlus.xml/asset, so that other developers know where new notes should go.
+1. All developers on the team can add their significant changes to the release notes and check in the `_BuildPlus.xml/asset` along with the changed files. This should be done at the current version shown in Build+.
+2. When a build is made and released, the developer who makes the build should increment the version number and check in `_BuildPlus.xml/asset`, so that other developers know where new notes should go.
 
-ReleaseNotes.txt:
+ReleaseNotes.txt:  
 After you have made a single build using the standard Build menu, you can then use Build+ to make additional builds 
 using the previously used settings. When you build this way, you will see a ReleaseNotes.txt file alongside your build.
 
-Please send any feedback to buildplus@luminaryproductions.net.
+Please send any feedback to <buildplus@luminaryproductions.net>.
 
-Enjoy!
+Enjoy!  
 Luminary Productions

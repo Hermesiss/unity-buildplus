@@ -183,7 +183,14 @@ public sealed class BuildPlusEditor : EditorWindow {
 		build.CurrentVersion.date = DateTime.Now;
 		Save();
 
-		string buildLocation = EditorUserBuildSettings.GetBuildLocation(EditorUserBuildSettings.activeBuildTarget);
+		//string buildLocation = EditorUserBuildSettings.GetBuildLocation(EditorUserBuildSettings.activeBuildTarget);
+
+		var versionPostfix = $"{build.CurrentVersion.major}.{build.CurrentVersion.minor}.{build.CurrentVersion.build}";
+
+		var buildLocation = Path.Combine("Builds",
+			Application.productName + "_" + versionPostfix + "_" + EditorUserBuildSettings.activeBuildTarget.ToString("G"),
+			Application.productName + ".exe");
+		
 		if (!string.IsNullOrEmpty(buildLocation)) {
 //			string[] dlls = Directory.GetFiles("Assets/Plugins", "*.dll");
 //			foreach (string dll in dlls)
@@ -194,8 +201,10 @@ public sealed class BuildPlusEditor : EditorWindow {
 				buildLocation,
 				EditorUserBuildSettings.activeBuildTarget,
 				BuildOptions.ShowBuiltPlayer);
+			
+			var folder = new FileInfo(buildLocation).DirectoryName;
 
-			File.WriteAllText(buildLocation + "/ReleaseNotes.txt", GetReleaseNotes());
+			File.WriteAllText(Path.Combine(folder, "ReleaseNotes.txt"), GetReleaseNotes());
 		}
 	}
 
