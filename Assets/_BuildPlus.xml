@@ -4,6 +4,20 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
+      <build>2</build>
+      <revision />
+      <date>2020-06-12T01:04:00</date>
+      <dateString>2020.06.12.0104</dateString>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Copy known issues from last version</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
       <build>1</build>
       <revision />
       <date>2020-06-08T08:21:00</date>

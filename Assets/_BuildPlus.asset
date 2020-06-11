@@ -17,6 +17,14 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 0
+      build: 2
+      revision: 
+      dateString: 2020.06.12.0104
+      notes:
+      - category: 1
+        description: Copy known issues from last version
+    - major: 1
+      minor: 0
       build: 1
       revision: 
       dateString: 2020.06.08.0821
@@ -94,9 +102,10 @@ MonoBehaviour:
       notes:
       - category: 1
         description: Initial version
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.1 (2020.06.08.0821)\r\n  IMPROVEMENTS\r\n   
-      * Load build info from Asset if Xml is deleted\r\n  GENERAL\r\n    * Move to
-      Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n  GENERAL\r\n    * Obtained\r\n\r\nv0.0.5
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.2 (2020.06.12.0104)\r\n  FEATURES\r\n   
+      * Copy known issues from last version\r\n\r\nv1.0.1 (2020.06.08.0821)\r\n 
+      IMPROVEMENTS\r\n    * Load build info from Asset if Xml is deleted\r\n  GENERAL\r\n   
+      * Move to Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n  GENERAL\r\n    * Obtained\r\n\r\nv0.0.5
       (2013.05.15.1154)\r\n  FEATURES\r\n    * Added Export button for saving release
       notes to disk separately\r\n  IMPROVEMENTS\r\n    * XML is now serialized w/
       indents, so that it is easier to merge\r\n    * Latest version's date/time

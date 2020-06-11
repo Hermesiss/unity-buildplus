@@ -208,11 +208,17 @@ public sealed class BuildPlusEditor : EditorWindow {
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.Label("Version");
 		if (GUILayout.Button("+", EditorStyles.miniButton)) {
-			Version v = new Version();
-			v.major = build.CurrentVersion.major;
-			v.minor = build.CurrentVersion.minor;
-			v.build = build.CurrentVersion.build + 1;
-			v.date = DateTime.Now;
+			var v = new Version {
+				major = build.CurrentVersion.major,
+				minor = build.CurrentVersion.minor,
+				build = build.CurrentVersion.build + 1,
+				date = DateTime.Now
+			};
+			
+			var latest = build.versions.First()?.notes.Where(x => x.category == Note.Category.KnownIssues);
+
+			if (latest != null) v.notes = latest.ToList();
+
 			build.versions.Add(v);
 			build.versions = build.versions.OrderByDescending(ver => ver.major)
 				.ThenByDescending(ver => ver.minor)
