@@ -325,9 +325,24 @@ public sealed class BuildPlusEditor : EditorWindow {
 				EditorGUILayout.EndHorizontal();
 
 				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.LabelField("Notes");
-				if (GUILayout.Button("+", EditorStyles.miniButton))
-					v.notes.Add(new Note());
+				EditorGUILayout.LabelField("Notes", GUILayout.Width(100));
+				
+				EditorGUILayout.LabelField("Add new:", GUILayout.Width(75));
+				
+				foreach (var s in Enum.GetNames(typeof(Note.Category))) {
+					var category = (Note.Category) Enum.Parse(typeof(Note.Category), s, true);
+					var color = GetColorByCategory(category) ;
+
+					var oldColor = GUI.contentColor;
+					GUI.color = color;
+					if (GUILayout.Button(s, EditorStyles.miniButton)) {
+						var note = new Note() {category = category};
+						v.notes.Add(note);	
+					}
+
+					GUI.color = oldColor;
+				}
+				
 				GUILayout.FlexibleSpace();
 				EditorGUILayout.EndHorizontal();
 
