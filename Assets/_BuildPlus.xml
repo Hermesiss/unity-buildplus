@@ -4,6 +4,38 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
+      <build>5</build>
+      <revision />
+      <date>2020-06-15T19:38:00</date>
+      <dateString>2020.06.15.1938</dateString>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Update version in package file</description>
+        </Note>
+        <Note>
+          <category>Improvements</category>
+          <description>Colored category labels</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
+      <build>4</build>
+      <revision />
+      <date>2020-06-15T18:38:00</date>
+      <dateString>2020.06.15.1838</dateString>
+      <notes>
+        <Note>
+          <category>General</category>
+          <description>Update readme</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
       <build>3</build>
       <revision />
       <date>2020-06-12T01:29:00</date>
@@ -176,4 +208,9 @@
       </notes>
     </Version>
   </versions>
+  <editorSettings>
+    <saveToPlayerSettings>true</saveToPlayerSettings>
+    <saveToPackageJson>true</saveToPackageJson>
+    <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
+  </editorSettings>
 </Build>

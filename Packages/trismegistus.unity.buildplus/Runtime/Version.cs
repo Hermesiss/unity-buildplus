@@ -11,7 +11,7 @@ namespace BuildPlus
 	[Serializable]
 	public class Version : XmlSerializableData<Version>
 	{
-		static public readonly string kDateFormat = "yyyy.MM.dd.HHmm";
+		public const string KDateFormat = "yyyy.MM.dd.HHmm";
 		
 		[Serializable]
 		public class Note
@@ -43,7 +43,7 @@ namespace BuildPlus
 		public override string ToString()
 		{
 			if (date != DateTime.MinValue)
-				dateString = date.ToString(kDateFormat);
+				dateString = date.ToString(KDateFormat);
 			return string.Format("{0}.{1}.{2}{3} ({4})", major, minor, build, revision, dateString);
 		}
 		
@@ -54,7 +54,7 @@ namespace BuildPlus
 		}
 
 		public void FillDate() {
-			date = DateTime.ParseExact(dateString, kDateFormat, null);
+			date = DateTime.ParseExact(dateString, KDateFormat, null);
 			//dateString = date.ToString(Version.kDateFormat);
 		}
 	}

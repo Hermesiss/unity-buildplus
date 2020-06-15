@@ -9,9 +9,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using BuildPlus;
+using UnityEditorInternal;
 using Version = BuildPlus.Version;
 using Note = BuildPlus.Version.Note;
+using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 
 public sealed class BuildPlusEditor : EditorWindow {
 	static readonly string kXmlPath = "Assets/_BuildPlus.xml";
@@ -29,9 +32,9 @@ public sealed class BuildPlusEditor : EditorWindow {
 	bool IsDirty() {
 		// This is the quick and easy test
 		if (!File.Exists(kXmlPath)) return true;
-			
+
 		var onDiskXml = File.ReadAllText(kXmlPath);
-			
+
 		if (build.ToXML() == onDiskXml)
 			return false;
 
@@ -111,6 +114,7 @@ public sealed class BuildPlusEditor : EditorWindow {
 				foreach (var bVersion in b.versions) {
 					bVersion.FillDate();
 				}
+
 				return true;
 			}
 		}
@@ -135,7 +139,19 @@ public sealed class BuildPlusEditor : EditorWindow {
 		AssetDatabase.SaveAssets();
 		AssetDatabase.Refresh();
 		var v = bso.build.versions.First();
-		PlayerSettings.bundleVersion = $"{v.major}.{v.minor}.{v.build}";
+		var bundleVersion = $"{v.major}.{v.minor}.{v.build}";
+		if (build.editorSettings.saveToPlayerSettings) {
+			
+			PlayerSettings.bundleVersion = bundleVersion;
+		}
+
+		if (build.editorSettings.saveToPackageJson) {
+			if (File.Exists(build.editorSettings.packageJsonPath)) {
+				var manifest = File.ReadAllText(build.editorSettings.packageJsonPath);
+				var manifest2 = Regex.Replace(manifest, "\"version\": \"[0-9]*.[0-9]*.[0-9]*\"", $"\"version\": \"{bundleVersion}\"");
+				File.WriteAllText(build.editorSettings.packageJsonPath, manifest2);
+			}
+		}
 	}
 
 	string Indent(int count) {
@@ -188,9 +204,10 @@ public sealed class BuildPlusEditor : EditorWindow {
 		var versionPostfix = $"{build.CurrentVersion.major}.{build.CurrentVersion.minor}.{build.CurrentVersion.build}";
 
 		var buildLocation = Path.Combine("Builds",
-			Application.productName + "_" + versionPostfix + "_" + EditorUserBuildSettings.activeBuildTarget.ToString("G"),
+			Application.productName + "_" + versionPostfix + "_" +
+			EditorUserBuildSettings.activeBuildTarget.ToString("G"),
 			Application.productName + ".exe");
-		
+
 		if (!string.IsNullOrEmpty(buildLocation)) {
 //			string[] dlls = Directory.GetFiles("Assets/Plugins", "*.dll");
 //			foreach (string dll in dlls)
@@ -201,7 +218,7 @@ public sealed class BuildPlusEditor : EditorWindow {
 				buildLocation,
 				EditorUserBuildSettings.activeBuildTarget,
 				BuildOptions.ShowBuiltPlayer);
-			
+
 			var folder = new FileInfo(buildLocation).DirectoryName;
 
 			File.WriteAllText(Path.Combine(folder, "ReleaseNotes.txt"), GetReleaseNotes());
@@ -223,7 +240,7 @@ public sealed class BuildPlusEditor : EditorWindow {
 				build = build.CurrentVersion.build + 1,
 				date = DateTime.Now
 			};
-			
+
 			var latest = build.versions.First()?.notes.Where(x => x.category == Note.Category.KnownIssues);
 
 			if (latest != null) v.notes = latest.ToList();
@@ -318,20 +335,27 @@ public sealed class BuildPlusEditor : EditorWindow {
 				foreach (Note n in v.notes) {
 					EditorGUILayout.BeginHorizontal();
 					GUI.changed = false;
+					var color = GetColorByCategory(n.category);
+
+					var oldColor = GUI.contentColor;
+					GUI.color = color;
+
 					n.category = (Note.Category) EditorGUILayout.EnumPopup(n.category, GUILayout.Width(100f));
+					GUI.color = oldColor;
 					if (GUI.changed) {
 						v.notes = v.notes.OrderBy(note => note.category).ToList();
-						EditorGUIUtility.keyboardControl = -1;
+						GUIUtility.keyboardControl = -1;
 						GUI.changed = false;
 						GUIUtility.ExitGUI();
 					}
 
+					
 					n.description = EditorGUILayout.TextArea(n.description, GUILayout.MaxWidth(400f));
 					if (GUILayout.Button("-", EditorStyles.miniButton, GUILayout.Width(20f))) {
 						v.notes.Remove(n);
 						GUIUtility.ExitGUI();
 					}
-
+					
 					EditorGUILayout.EndHorizontal();
 				}
 
@@ -344,22 +368,94 @@ public sealed class BuildPlusEditor : EditorWindow {
 		EditorGUILayout.EndScrollView();
 
 		GUILayout.FlexibleSpace();
+
+		//Settings
+
+		build.editorSettings.saveToPlayerSettings =
+			GUILayout.Toggle(build.editorSettings.saveToPlayerSettings, "Save to PlayerSettings");
+
+		// save to package.json
 		EditorGUILayout.BeginHorizontal();
-		if (GUILayout.Button("Export ReleaseNotes.txt", GUILayout.Width(buttonWidth * 2f))) {
-			ExportReleaseNotes();
-		}
+		{
+			build.editorSettings.saveToPackageJson =
+				GUILayout.Toggle(build.editorSettings.saveToPackageJson, "Save to package.json");
 
-		GUILayout.FlexibleSpace();
-		if (GUILayout.Button("Save", GUILayout.Width(buttonWidth))) {
-			Save();
-		}
+			var guiEnabledOld = GUI.enabled;
+			GUI.enabled = build.editorSettings.saveToPackageJson;
 
-		if (GUILayout.Button("Build", GUILayout.Width(buttonWidth))) {
-			DoBuild();
-			GUIUtility.ExitGUI();
-		}
+			GUIStyle myStyle = new GUIStyle(GUI.skin.textField);
+			myStyle.alignment = TextAnchor.MiddleRight;
+			build.editorSettings.packageJsonPath =
+				GUILayout.TextField(build.editorSettings.packageJsonPath, myStyle, GUILayout.MaxWidth(300));
+			if (GUILayout.Button("Browse", EditorStyles.miniButton, GUILayout.Width(buttonWidth))) {
+				var projpath = new DirectoryInfo(Application.dataPath).FullName;
+				var path = new DirectoryInfo(EditorUtility.OpenFilePanel("Choose package.json",
+					build.editorSettings.packageJsonPath, "json")).FullName;
 
+				string GetRelativePath(string pathFrom, string pathTo) {
+					Uri uri = new Uri(pathFrom);
+					string relativePath = Uri.UnescapeDataString(uri.MakeRelativeUri(new Uri(pathTo)).ToString());
+					relativePath = relativePath.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+					if (!relativePath.Contains(Path.DirectorySeparatorChar.ToString()))
+						relativePath = "." + Path.DirectorySeparatorChar + relativePath;
+					return relativePath;
+				}
+
+				build.editorSettings.packageJsonPath = GetRelativePath(projpath, path);
+			}
+
+			GUI.enabled = guiEnabledOld;
+		}
+		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal();
+		{
+			if (GUILayout.Button("Export ReleaseNotes.txt", GUILayout.Width(buttonWidth * 2f))) {
+				ExportReleaseNotes();
+			}
+
+			GUILayout.FlexibleSpace();
+			if (GUILayout.Button("Save", GUILayout.Width(buttonWidth))) {
+				Save();
+			}
+
+			if (GUILayout.Button("Build", GUILayout.Width(buttonWidth))) {
+				DoBuild();
+				GUIUtility.ExitGUI();
+			}
+		}
 		EditorGUILayout.EndHorizontal();
 		GUILayout.EndArea();
+	}
+
+	private static Color GetColorByCategory(Note.Category category) {
+		Color color;
+		switch (category) {
+			case Note.Category.Hidden:
+				color = Color.gray;
+				break;
+			case Note.Category.Features:
+				color = new Color(0.47f, 1f, 0.45f);
+				break;
+			case Note.Category.Improvements:
+				color = new Color(0.44f, 0.51f, 1f);
+				break;
+			case Note.Category.Fixes:
+				color = new Color(0.37f, 1f, 0.85f);
+				break;
+			case Note.Category.Changes:
+				color = new Color(1f, 0.59f, 0.29f);
+				break;
+			case Note.Category.KnownIssues:
+				color = new Color(1f, 0.34f, 0.39f);
+				break;
+			case Note.Category.General:
+				color = GUI.contentColor;
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
+
+		return color;
 	}
 }

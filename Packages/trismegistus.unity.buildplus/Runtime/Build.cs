@@ -9,10 +9,18 @@ using System.Collections.Generic;
 namespace BuildPlus
 {
 	[Serializable]
+	public struct EditorSettings {
+		public bool saveToPlayerSettings;
+		public bool saveToPackageJson;
+		public string packageJsonPath;
+	}
+	
+	[Serializable]
 	public class Build : XmlSerializableData<Build>
 	{
 		public int xmlVersion;		
 		public List<Version> versions = new List<Version>();
+		public EditorSettings editorSettings;
 		
 		[XmlIgnore]
 		public string releaseNotes; // Set at build time and is a text version of everything for the BuildPlusSO

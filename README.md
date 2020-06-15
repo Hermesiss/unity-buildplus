@@ -4,6 +4,23 @@
 
 A UPM version of [Build+](https://assetstore.unity.com/packages/tools/utilities/build-3720). There's no way to contact its owner : (
 
+## Features
+
+* Edit version info
+* Edit release notes (with colored labels!💐):
+  * Hidden
+  * Features
+  * Improvements
+  * Fixes
+  * Changes
+  * KnownIssues
+  * General
+* Update version:
+  * PlayerSettings
+  * package.json at given path
+* Build with generated path `Builds/ProductName_0.0.0_StandaloneWindows64/ProductName.exe`
+* Read all information at runtime from ScriptableObject
+
 ## Installation
 
 You have several options
@@ -30,7 +47,7 @@ Then open `Window/Package manager`, `All packages`, and install `Trismegistus Bu
 
 1. Open `Window/Package manager`
 2. `+`, `Add from git URL`
-3. Enter `https://github.com/Hermesiss/unity-buildplus.git?path=/Assets/BuildPlus`
+3. Enter `https://github.com/Hermesiss/unity-buildplus.git?path=/Packages/trismegistus.unity.buildplus`
 
 ## Readme from creator
 
