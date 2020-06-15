@@ -17,6 +17,14 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 0
+      build: 7
+      revision: 
+      dateString: 2020.06.16.0004
+      notes:
+      - category: 0
+        description: Performance improvements
+    - major: 1
+      minor: 0
       build: 6
       revision: 
       dateString: 2020.06.15.2340
@@ -142,9 +150,9 @@ MonoBehaviour:
       saveToPlayerSettings: 1
       saveToPackageJson: 1
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.6 (2020.06.15.2340)\r\n  FEATURES\r\n   
-      * Note type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n  FEATURES\r\n    *
-      Update version in package file\r\n  IMPROVEMENTS\r\n    * Colored category
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.7 (2020.06.16.0004)\r\n\r\nv1.0.6 (2020.06.15.2340)\r\n 
+      FEATURES\r\n    * Note type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n  FEATURES\r\n   
+      * Update version in package file\r\n  IMPROVEMENTS\r\n    * Colored category
       labels\r\n\r\nv1.0.4 (2020.06.15.1838)\r\n  GENERAL\r\n    * Update readme\r\n\r\nv1.0.3
       (2020.06.12.0129)\r\n  IMPROVEMENTS\r\n    * Build location with version\r\n 
       FIXES\r\n    * Release notes build location\r\n\r\nv1.0.2 (2020.06.12.0104)\r\n 

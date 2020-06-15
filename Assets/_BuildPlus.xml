@@ -4,6 +4,20 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
+      <build>7</build>
+      <revision />
+      <date>2020-06-16T00:04:00</date>
+      <dateString>2020.06.16.0004</dateString>
+      <notes>
+        <Note>
+          <category>Hidden</category>
+          <description>Performance improvements</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
       <build>6</build>
       <revision />
       <date>2020-06-15T23:40:00</date>

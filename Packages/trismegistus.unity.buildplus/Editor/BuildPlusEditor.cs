@@ -11,10 +11,8 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using BuildPlus;
-using UnityEditorInternal;
 using Version = BuildPlus.Version;
 using Note = BuildPlus.Version.Note;
-using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 
 public sealed class BuildPlusEditor : EditorWindow {
 	static readonly string kXmlPath = "Assets/_BuildPlus.xml";
@@ -102,6 +100,16 @@ public sealed class BuildPlusEditor : EditorWindow {
 				}
 			}
 		}
+		
+		CategoryColors = new Dictionary<Note.Category, Color> {
+			{Note.Category.Hidden, Color.gray},
+			{Note.Category.Features, new Color(0.47f, 1f, 0.45f)},
+			{Note.Category.Improvements, new Color(0.53f, 0.42f, 0.89f)},
+			{Note.Category.Fixes, new Color(0.4f, 0.87f, 1f)},
+			{Note.Category.Changes, new Color(1f, 0.59f, 0.29f)},
+			{Note.Category.KnownIssues, new Color(1f, 0.34f, 0.39f)},
+			{Note.Category.General, GUI.contentColor}
+		};
 
 		expanded.Clear();
 	}
@@ -443,34 +451,7 @@ public sealed class BuildPlusEditor : EditorWindow {
 		GUILayout.EndArea();
 	}
 
-	private static Color GetColorByCategory(Note.Category category) {
-		Color color;
-		switch (category) {
-			case Note.Category.Hidden:
-				color = Color.gray;
-				break;
-			case Note.Category.Features:
-				color = new Color(0.47f, 1f, 0.45f);
-				break;
-			case Note.Category.Improvements:
-				color = new Color(0.44f, 0.51f, 1f);
-				break;
-			case Note.Category.Fixes:
-				color = new Color(0.37f, 1f, 0.85f);
-				break;
-			case Note.Category.Changes:
-				color = new Color(1f, 0.59f, 0.29f);
-				break;
-			case Note.Category.KnownIssues:
-				color = new Color(1f, 0.34f, 0.39f);
-				break;
-			case Note.Category.General:
-				color = GUI.contentColor;
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
+	private static Dictionary<Note.Category, Color> CategoryColors;
 
-		return color;
-	}
+	private static Color GetColorByCategory(Note.Category category) => CategoryColors[category];
 }

@@ -7,14 +7,14 @@ A UPM version of [Build+](https://assetstore.unity.com/packages/tools/utilities/
 ## Features
 
 * Edit version info
-* Edit release notes (with colored labels!💐):
-  * Hidden
-  * Features
-  * Improvements
-  * Fixes
-  * Changes
-  * KnownIssues
-  * General
+* Edit release notes (now with colored labels!💐):
+  * ⬛ Hidden
+  * 🟩 Features
+  * 🟪 Improvements
+  * 🟦 Fixes
+  * 🟧 Changes
+  * 🟥 KnownIssues
+  * ⬜ General
 * Update version:
   * PlayerSettings
   * package.json at given path
