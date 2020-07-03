@@ -249,7 +249,7 @@ public sealed class BuildPlusEditor : EditorWindow {
 				date = DateTime.Now
 			};
 
-			var latest = build.versions.First()?.notes.Where(x => x.category == Note.Category.KnownIssues);
+			var latest = build.versions.First()?.notes.Where(x => x.category == Note.Category.KnownIssues).Select(x => (Note)x.Clone());
 
 			if (latest != null) v.notes = latest.ToList();
 
@@ -346,6 +346,7 @@ public sealed class BuildPlusEditor : EditorWindow {
 					if (GUILayout.Button(s, EditorStyles.miniButton)) {
 						var note = new Note() {category = category};
 						v.notes.Add(note);	
+						v.notes = v.notes.OrderBy(n => n.category).ToList();
 					}
 
 					GUI.color = oldColor;
