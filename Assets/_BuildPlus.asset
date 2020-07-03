@@ -19,12 +19,18 @@ MonoBehaviour:
       minor: 0
       build: 8
       revision: 
-      dateString: 2020.07.03.1556
+      dateString: 2020.07.03.1842
       notes:
+      - category: 1
+        description: Build path editor
       - category: 3
         description: Clone Known Issues from last version instead of copying references
+      - category: 3
+        description: Handle package browsing empty path
       - category: 4
         description: Sort notes after adding new one
+      - category: 5
+        description: Need to move SmartFormat to different package
     - major: 1
       minor: 0
       build: 7
@@ -160,9 +166,12 @@ MonoBehaviour:
       saveToPlayerSettings: 1
       saveToPackageJson: 1
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.8 (2020.07.03.1556)\r\n  FIXES\r\n   
-      * Clone Known Issues from last version instead of copying references\r\n  CHANGES\r\n   
-      * Sort notes after adding new one\r\n\r\nv1.0.7 (2020.06.16.0004)\r\n\r\nv1.0.6
+      buildPathScheme: '{p_path}/Build/{p_name}_{ver}'
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.8 (2020.07.03.1842)\r\n  FEATURES\r\n   
+      * Build path editor\r\n  FIXES\r\n    * Clone Known Issues from last version
+      instead of copying references\r\n    * Handle package browsing empty path\r\n 
+      CHANGES\r\n    * Sort notes after adding new one\r\n  KNOWN ISSUES\r\n    *
+      Need to move SmartFormat to different package\r\n\r\nv1.0.7 (2020.06.16.0004)\r\n\r\nv1.0.6
       (2020.06.15.2340)\r\n  FEATURES\r\n    * Note type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n 
       FEATURES\r\n    * Update version in package file\r\n  IMPROVEMENTS\r\n    *
       Colored category labels\r\n\r\nv1.0.4 (2020.06.15.1838)\r\n  GENERAL\r\n   

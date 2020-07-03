@@ -6,16 +6,28 @@
       <minor>0</minor>
       <build>8</build>
       <revision />
-      <date>2020-07-03T15:56:00</date>
-      <dateString>2020.07.03.1556</dateString>
+      <date>2020-07-03T18:42:00</date>
+      <dateString>2020.07.03.1842</dateString>
       <notes>
+        <Note>
+          <category>Features</category>
+          <description>Build path editor</description>
+        </Note>
         <Note>
           <category>Fixes</category>
           <description>Clone Known Issues from last version instead of copying references</description>
         </Note>
         <Note>
+          <category>Fixes</category>
+          <description>Handle package browsing empty path</description>
+        </Note>
+        <Note>
           <category>Changes</category>
           <description>Sort notes after adding new one</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>Need to move SmartFormat to different package</description>
         </Note>
       </notes>
     </Version>
@@ -258,5 +270,6 @@
     <saveToPlayerSettings>true</saveToPlayerSettings>
     <saveToPackageJson>true</saveToPackageJson>
     <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
+    <buildPathScheme>{p_path}/Build/{p_name}_{ver}</buildPathScheme>
   </editorSettings>
 </Build>

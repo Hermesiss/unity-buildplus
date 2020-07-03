@@ -6,7 +6,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
-namespace BuildPlus
+namespace Trismegistus.BuildPlus
 {
 	[Serializable]
 	public class Version : XmlSerializableData<Version>
