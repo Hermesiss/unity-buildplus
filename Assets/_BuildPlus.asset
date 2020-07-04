@@ -17,6 +17,30 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 0
+      build: 9
+      revision: 
+      dateString: 2020.07.04.1331
+      notes:
+      - category: 3
+        description: Fix smartFormat error while parsing uncommon symbols
+    - major: 1
+      minor: 0
+      build: 8
+      revision: 
+      dateString: 2020.07.03.1842
+      notes:
+      - category: 1
+        description: Build path editor
+      - category: 3
+        description: Clone Known Issues from last version instead of copying references
+      - category: 3
+        description: Handle package browsing empty path
+      - category: 4
+        description: Sort notes after adding new one
+      - category: 6
+        description: Add trismegistus.unity.smartformat dependency
+    - major: 1
+      minor: 0
       build: 7
       revision: 
       dateString: 2020.06.16.0004
@@ -150,21 +174,27 @@ MonoBehaviour:
       saveToPlayerSettings: 1
       saveToPackageJson: 1
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.7 (2020.06.16.0004)\r\n\r\nv1.0.6 (2020.06.15.2340)\r\n 
-      FEATURES\r\n    * Note type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n  FEATURES\r\n   
-      * Update version in package file\r\n  IMPROVEMENTS\r\n    * Colored category
-      labels\r\n\r\nv1.0.4 (2020.06.15.1838)\r\n  GENERAL\r\n    * Update readme\r\n\r\nv1.0.3
-      (2020.06.12.0129)\r\n  IMPROVEMENTS\r\n    * Build location with version\r\n 
-      FIXES\r\n    * Release notes build location\r\n\r\nv1.0.2 (2020.06.12.0104)\r\n 
-      FEATURES\r\n    * Copy known issues from last version\r\n\r\nv1.0.1 (2020.06.08.0821)\r\n 
-      IMPROVEMENTS\r\n    * Load build info from Asset if Xml is deleted\r\n  GENERAL\r\n   
-      * Move to Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n  GENERAL\r\n    * Obtained\r\n\r\nv0.0.5
-      (2013.05.15.1154)\r\n  FEATURES\r\n    * Added Export button for saving release
-      notes to disk separately\r\n  IMPROVEMENTS\r\n    * XML is now serialized w/
-      indents, so that it is easier to merge\r\n    * Latest version's date/time
-      is updated automatically when building\r\n  FIXES\r\n    * Fixed compilation
-      warning in BuildPlusEditor\r\n    * Fixed release notes not writing correctly
-      for iOS builds\r\n  CHANGES\r\n    * Save now calls AssetDatabase.SaveAssets()
+      buildPathScheme: '{p_path}/Build/{p_name}_{ver}'
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.9 (2020.07.04.1331)\r\n  FIXES\r\n   
+      * Fix smartFormat error while parsing uncommon symbols\r\n\r\nv1.0.8 (2020.07.03.1842)\r\n 
+      FEATURES\r\n    * Build path editor\r\n  FIXES\r\n    * Clone Known Issues
+      from last version instead of copying references\r\n    * Handle package browsing
+      empty path\r\n  CHANGES\r\n    * Sort notes after adding new one\r\n  GENERAL\r\n   
+      * Add trismegistus.unity.smartformat dependency\r\n\r\nv1.0.7 (2020.06.16.0004)\r\n\r\nv1.0.6
+      (2020.06.15.2340)\r\n  FEATURES\r\n    * Note type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n 
+      FEATURES\r\n    * Update version in package file\r\n  IMPROVEMENTS\r\n    *
+      Colored category labels\r\n\r\nv1.0.4 (2020.06.15.1838)\r\n  GENERAL\r\n   
+      * Update readme\r\n\r\nv1.0.3 (2020.06.12.0129)\r\n  IMPROVEMENTS\r\n    *
+      Build location with version\r\n  FIXES\r\n    * Release notes build location\r\n\r\nv1.0.2
+      (2020.06.12.0104)\r\n  FEATURES\r\n    * Copy known issues from last version\r\n\r\nv1.0.1
+      (2020.06.08.0821)\r\n  IMPROVEMENTS\r\n    * Load build info from Asset if
+      Xml is deleted\r\n  GENERAL\r\n    * Move to Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n 
+      GENERAL\r\n    * Obtained\r\n\r\nv0.0.5 (2013.05.15.1154)\r\n  FEATURES\r\n   
+      * Added Export button for saving release notes to disk separately\r\n  IMPROVEMENTS\r\n   
+      * XML is now serialized w/ indents, so that it is easier to merge\r\n    *
+      Latest version's date/time is updated automatically when building\r\n  FIXES\r\n   
+      * Fixed compilation warning in BuildPlusEditor\r\n    * Fixed release notes
+      not writing correctly for iOS builds\r\n  CHANGES\r\n    * Save now calls AssetDatabase.SaveAssets()
       so that _BuildPlus.asset is saved\r\n\r\nv0.0.4 (2012.06.26.0859)\r\n  FIXES\r\n   
       * Release notes weren't be written to txt file correctly\r\n  GENERAL\r\n   
       * Added ReadMe.txt and ReleaseNotes.txt for Asset Store submission\r\n\r\nv0.0.3

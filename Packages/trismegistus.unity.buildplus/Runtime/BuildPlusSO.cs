@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using BuildPlus;
+using Trismegistus.BuildPlus;
 
 public class BuildPlusSO : ScriptableObject 
 {

@@ -6,7 +6,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
-namespace BuildPlus
+namespace Trismegistus.BuildPlus
 {
 	[Serializable]
 	public class Version : XmlSerializableData<Version>
@@ -14,7 +14,7 @@ namespace BuildPlus
 		public const string KDateFormat = "yyyy.MM.dd.HHmm";
 		
 		[Serializable]
-		public class Note
+		public class Note : ICloneable
 		{
 			public enum Category
 			{
@@ -27,8 +27,23 @@ namespace BuildPlus
 				General
 			}
 			
-			public Category category = Category.General;
-			public string description = string.Empty;
+			public Category category;
+			public string description;
+			
+			
+			public Note(Category category1, string s) {
+				category = category1;
+				description = s;
+			}
+
+			public Note() {
+				category = Category.General;
+				description = string.Empty;
+			}
+
+			public object Clone() {
+				return new Note(category, description);
+			}
 		}
 		
 		public int major;

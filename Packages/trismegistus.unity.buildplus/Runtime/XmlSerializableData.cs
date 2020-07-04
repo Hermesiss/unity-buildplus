@@ -8,7 +8,7 @@ using System.Xml;
 using System.IO;
 using System.Text;
 
-namespace BuildPlus
+namespace Trismegistus.BuildPlus
 {
 	public interface IXmlSerializableData
 	{

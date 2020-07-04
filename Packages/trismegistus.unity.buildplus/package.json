@@ -1,33 +1,34 @@
 {
-    "name": "trismegistus.unity.buildplus",
-    "version": "1.0.7",
-    "displayName": "Trismegistus Build+",
-    "description": "Semver utility for Unity projects with changelog / release notes generator",
-    "unity": "2019.2",
-    "unityRelease": "",
-    "dependencies": {},
-    "keywords": [
-        "unity",
-        "build",
-        "tool",
-        "semver",
-        "changelog"
-    ],
-    "author": {
-        "name": "Hermesis",
-        "email": "hermesiss@gmail.com",
-        "url": "https://github.com/Hermesiss"
-    },
-    "contributors": [],
-    "homepage": "https://github.com/Hermesiss/unity-buildplus",
-    "bugs": {
-        "url": "https://github.com/Hermesiss/unity-buildplus/issues"
-    },
-    "samples": [
-        {
-            "displayName": "Show Versions",
-            "description": "Shows Versions in runtime.",
-            "path": "Samples~/ShowVersion"
-        }
-    ]
+  "name": "trismegistus.unity.buildplus",
+  "version": "1.0.9",
+  "displayName": "Trismegistus Build+",
+  "description": "Semver utility for Unity projects with changelog / release notes generator",
+  "unity": "2019.2",
+  "keywords": [
+    "unity",
+    "build",
+    "tool",
+    "semver",
+    "changelog"
+  ],
+  "author": {
+    "name": "Hermesis",
+    "email": "hermesiss@gmail.com",
+    "url": "https://github.com/Hermesiss"
+  },
+  "contributors": [],
+  "homepage": "https://github.com/Hermesiss/unity-buildplus",
+  "bugs": {
+    "url": "https://github.com/Hermesiss/unity-buildplus/issues"
+  },
+  "samples": [
+    {
+      "displayName": "Show Versions",
+      "description": "Shows Versions in runtime.",
+      "path": "Samples~/ShowVersion"
+    }
+  ],
+  "dependencies": {
+    "trismegistus.unity.smartformat": "1.0.0"
+  }
 }
