@@ -509,22 +509,27 @@ namespace Trismegistus.BuildPlus {
 		}
 
 		private string GetBuildPath() {
-			var dict = _buildPathDict.ToDictionary(pair => pair.Key, pair => pair.Value.parameter);
-			var path = Smart.Format(build.editorSettings.buildPathScheme.Replace("\\", "/"),
-				dict
-			);
-			switch (EditorUserBuildSettings.activeBuildTarget) {
-				case BuildTarget.StandaloneWindows:
-				case BuildTarget.StandaloneWindows64:
-					path += $"/{Application.productName}.exe";
-					break;
-				default:
-					throw new NotImplementedException(
-						$"Building for platform {EditorUserBuildSettings.activeBuildTarget} is not yet supported, " +
-						"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
-			}
+			try {
+				var dict = _buildPathDict.ToDictionary(pair => pair.Key, pair => pair.Value.parameter);
+				var path = Smart.Format(build.editorSettings.buildPathScheme.Replace("\\", "/"),
+					dict
+				);
+				switch (EditorUserBuildSettings.activeBuildTarget) {
+					case BuildTarget.StandaloneWindows:
+					case BuildTarget.StandaloneWindows64:
+						path += $"/{Application.productName}.exe";
+						break;
+					default:
+						throw new NotImplementedException(
+							$"Building for platform {EditorUserBuildSettings.activeBuildTarget} is not yet supported, " +
+							"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
+				}
 
-			return Path.GetFullPath(path);
+				return Path.GetFullPath(path);
+			}
+			catch (Exception e) {
+				return $"ERROR: {e}";
+			}
 		}
 
 		private static Dictionary<Note.Category, Color> _categoryColors;
