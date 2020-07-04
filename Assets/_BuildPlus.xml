@@ -26,8 +26,8 @@
           <description>Sort notes after adding new one</description>
         </Note>
         <Note>
-          <category>KnownIssues</category>
-          <description>Need to move SmartFormat to different package</description>
+          <category>General</category>
+          <description>Add trismegistus.unity.smartformat dependency</description>
         </Note>
       </notes>
     </Version>

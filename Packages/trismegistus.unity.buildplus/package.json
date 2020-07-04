@@ -27,5 +27,8 @@
       "description": "Shows Versions in runtime.",
       "path": "Samples~/ShowVersion"
     }
-  ]
+  ],
+  "dependencies": {
+    "trismegistus.unity.smartformat": "1.0.0"
+  }
 }
