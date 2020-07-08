@@ -17,9 +17,31 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 0
+      build: 10
+      revision: 
+      dateString: 2020.07.08.1621
+      yanked: 0
+      unreleased: 0
+      notes:
+      - category: 0
+        description: Update publish.sh
+      - category: 1
+        description: Add REMOVED note type
+      - category: 1
+        description: Add YANKED to version
+      - category: 1
+        description: Add unreleased versions
+      - category: 1
+        description: Add DEPRECATED note type
+      - category: 1
+        description: Save to CHANGELOG.md
+    - major: 1
+      minor: 0
       build: 9
       revision: 
       dateString: 2020.07.04.1331
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 3
         description: Fix smartFormat error while parsing uncommon symbols
@@ -28,6 +50,8 @@ MonoBehaviour:
       build: 8
       revision: 
       dateString: 2020.07.03.1842
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 1
         description: Build path editor
@@ -44,6 +68,8 @@ MonoBehaviour:
       build: 7
       revision: 
       dateString: 2020.06.16.0004
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 0
         description: Performance improvements
@@ -52,6 +78,8 @@ MonoBehaviour:
       build: 6
       revision: 
       dateString: 2020.06.15.2340
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 1
         description: Note type buttons
@@ -60,6 +88,8 @@ MonoBehaviour:
       build: 5
       revision: 
       dateString: 2020.06.15.1938
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 1
         description: Update version in package file
@@ -70,6 +100,8 @@ MonoBehaviour:
       build: 4
       revision: 
       dateString: 2020.06.15.1838
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 6
         description: Update readme
@@ -78,6 +110,8 @@ MonoBehaviour:
       build: 3
       revision: 
       dateString: 2020.06.12.0129
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 2
         description: Build location with version
@@ -88,6 +122,8 @@ MonoBehaviour:
       build: 2
       revision: 
       dateString: 2020.06.12.0104
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 1
         description: Copy known issues from last version
@@ -96,6 +132,8 @@ MonoBehaviour:
       build: 1
       revision: 
       dateString: 2020.06.08.0821
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 2
         description: Load build info from Asset if Xml is deleted
@@ -106,6 +144,8 @@ MonoBehaviour:
       build: 0
       revision: 
       dateString: 2020.06.06.1000
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 6
         description: Obtained
@@ -114,6 +154,8 @@ MonoBehaviour:
       build: 5
       revision: 
       dateString: 2013.05.15.1154
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 1
         description: Added Export button for saving release notes to disk separately
@@ -133,6 +175,8 @@ MonoBehaviour:
       build: 4
       revision: 
       dateString: 2012.06.26.0859
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 3
         description: Release notes weren't be written to txt file correctly
@@ -143,6 +187,8 @@ MonoBehaviour:
       build: 3
       revision: 
       dateString: 2012.06.22.1203
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 0
         description: Added IsDirty()
@@ -159,6 +205,8 @@ MonoBehaviour:
       build: 2
       revision: 
       dateString: 2012.06.22.0109
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 2
         description: Cleaned up release notes output
@@ -167,6 +215,8 @@ MonoBehaviour:
       build: 1
       revision: 
       dateString: 2012.06.22.0059
+      yanked: 0
+      unreleased: 0
       notes:
       - category: 1
         description: Initial version
@@ -175,26 +225,30 @@ MonoBehaviour:
       saveToPackageJson: 1
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
       buildPathScheme: '{p_path}/Build/{p_name}_{ver}'
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.9 (2020.07.04.1331)\r\n  FIXES\r\n   
-      * Fix smartFormat error while parsing uncommon symbols\r\n\r\nv1.0.8 (2020.07.03.1842)\r\n 
-      FEATURES\r\n    * Build path editor\r\n  FIXES\r\n    * Clone Known Issues
-      from last version instead of copying references\r\n    * Handle package browsing
-      empty path\r\n  CHANGES\r\n    * Sort notes after adding new one\r\n  GENERAL\r\n   
-      * Add trismegistus.unity.smartformat dependency\r\n\r\nv1.0.7 (2020.06.16.0004)\r\n\r\nv1.0.6
-      (2020.06.15.2340)\r\n  FEATURES\r\n    * Note type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n 
-      FEATURES\r\n    * Update version in package file\r\n  IMPROVEMENTS\r\n    *
-      Colored category labels\r\n\r\nv1.0.4 (2020.06.15.1838)\r\n  GENERAL\r\n   
-      * Update readme\r\n\r\nv1.0.3 (2020.06.12.0129)\r\n  IMPROVEMENTS\r\n    *
-      Build location with version\r\n  FIXES\r\n    * Release notes build location\r\n\r\nv1.0.2
-      (2020.06.12.0104)\r\n  FEATURES\r\n    * Copy known issues from last version\r\n\r\nv1.0.1
-      (2020.06.08.0821)\r\n  IMPROVEMENTS\r\n    * Load build info from Asset if
-      Xml is deleted\r\n  GENERAL\r\n    * Move to Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n 
-      GENERAL\r\n    * Obtained\r\n\r\nv0.0.5 (2013.05.15.1154)\r\n  FEATURES\r\n   
-      * Added Export button for saving release notes to disk separately\r\n  IMPROVEMENTS\r\n   
-      * XML is now serialized w/ indents, so that it is easier to merge\r\n    *
-      Latest version's date/time is updated automatically when building\r\n  FIXES\r\n   
-      * Fixed compilation warning in BuildPlusEditor\r\n    * Fixed release notes
-      not writing correctly for iOS builds\r\n  CHANGES\r\n    * Save now calls AssetDatabase.SaveAssets()
+      saveToChangelogMd: 1
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.10 (2020.07.08.1621)\r\n  FEATURES\r\n   
+      * Add REMOVED note type\r\n    * Add YANKED to version\r\n    * Add unreleased
+      versions\r\n    * Add DEPRECATED note type\r\n    * Save to CHANGELOG.md\r\n\r\nv1.0.9
+      (2020.07.04.1331)\r\n  FIXES\r\n    * Fix smartFormat error while parsing uncommon
+      symbols\r\n\r\nv1.0.8 (2020.07.03.1842)\r\n  FEATURES\r\n    * Build path editor\r\n 
+      FIXES\r\n    * Clone Known Issues from last version instead of copying references\r\n   
+      * Handle package browsing empty path\r\n  CHANGES\r\n    * Sort notes after
+      adding new one\r\n  GENERAL\r\n    * Add trismegistus.unity.smartformat dependency\r\n\r\nv1.0.7
+      (2020.06.16.0004)\r\n\r\nv1.0.6 (2020.06.15.2340)\r\n  FEATURES\r\n    * Note
+      type buttons\r\n\r\nv1.0.5 (2020.06.15.1938)\r\n  FEATURES\r\n    * Update
+      version in package file\r\n  IMPROVEMENTS\r\n    * Colored category labels\r\n\r\nv1.0.4
+      (2020.06.15.1838)\r\n  GENERAL\r\n    * Update readme\r\n\r\nv1.0.3 (2020.06.12.0129)\r\n 
+      IMPROVEMENTS\r\n    * Build location with version\r\n  FIXES\r\n    * Release
+      notes build location\r\n\r\nv1.0.2 (2020.06.12.0104)\r\n  FEATURES\r\n    *
+      Copy known issues from last version\r\n\r\nv1.0.1 (2020.06.08.0821)\r\n  IMPROVEMENTS\r\n   
+      * Load build info from Asset if Xml is deleted\r\n  GENERAL\r\n    * Move to
+      Packages\r\n\r\nv1.0.0 (2020.06.06.1000)\r\n  GENERAL\r\n    * Obtained\r\n\r\nv0.0.5
+      (2013.05.15.1154)\r\n  FEATURES\r\n    * Added Export button for saving release
+      notes to disk separately\r\n  IMPROVEMENTS\r\n    * XML is now serialized w/
+      indents, so that it is easier to merge\r\n    * Latest version's date/time
+      is updated automatically when building\r\n  FIXES\r\n    * Fixed compilation
+      warning in BuildPlusEditor\r\n    * Fixed release notes not writing correctly
+      for iOS builds\r\n  CHANGES\r\n    * Save now calls AssetDatabase.SaveAssets()
       so that _BuildPlus.asset is saved\r\n\r\nv0.0.4 (2012.06.26.0859)\r\n  FIXES\r\n   
       * Release notes weren't be written to txt file correctly\r\n  GENERAL\r\n   
       * Added ReadMe.txt and ReleaseNotes.txt for Asset Store submission\r\n\r\nv0.0.3
@@ -203,3 +257,12 @@ MonoBehaviour:
       by default\r\n  FIXES\r\n    * Reload issue in the editor w/ dates\r\n\r\nv0.0.2
       (2012.06.22.0109)\r\n  IMPROVEMENTS\r\n    * Cleaned up release notes output\r\n\r\nv0.0.1
       (2012.06.22.0059)\r\n  FEATURES\r\n    * Initial version\r\n\r\n"
+    todo:
+      major: 0
+      minor: 0
+      build: 0
+      revision: 
+      dateString: 
+      yanked: 0
+      unreleased: 0
+      notes: []

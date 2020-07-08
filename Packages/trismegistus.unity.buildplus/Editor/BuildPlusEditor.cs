@@ -108,7 +108,9 @@ namespace Trismegistus.BuildPlus {
 				{Note.Category.Fixes, new Color(0.4f, 0.87f, 1f)},
 				{Note.Category.Changes, new Color(1f, 0.59f, 0.29f)},
 				{Note.Category.KnownIssues, new Color(1f, 0.34f, 0.39f)},
-				{Note.Category.General, GUI.contentColor}
+				{Note.Category.General, GUI.contentColor},
+				{Note.Category.Removed, new Color(1f, 0.08f, 0.22f)},
+				{Note.Category.Deprecated, new Color(1f, 0.57f, 0.32f)}
 			};
 
 			expanded.Clear();
@@ -146,7 +148,7 @@ namespace Trismegistus.BuildPlus {
 			EditorUtility.SetDirty(bso);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
-			var v = bso.build.versions.First();
+			var v = bso.build.versions.First(x => !x.unreleased);
 			var bundleVersion = $"{v.major}.{v.minor}.{v.build}";
 			if (build.editorSettings.saveToPlayerSettings) {
 				PlayerSettings.bundleVersion = bundleVersion;
@@ -157,6 +159,11 @@ namespace Trismegistus.BuildPlus {
 				var manifest2 = Regex.Replace(manifest, "\"version\": \"[0-9]*.[0-9]*.[0-9]*\"",
 					$"\"version\": \"{bundleVersion}\"");
 				File.WriteAllText(build.editorSettings.packageJsonPath, manifest2);
+			}
+			
+			if (build.editorSettings.saveToChangelogMd) {
+				var b = new ChangelogBuilder(build);
+				b.Build();
 			}
 		}
 
@@ -244,12 +251,26 @@ namespace Trismegistus.BuildPlus {
 				EditorGUILayout.BeginHorizontal();
 				{
 					GUILayout.Label("Version");
-					if (GUILayout.Button("+", EditorStyles.miniButton)) {
+					var g = GUI.enabled;
+					GUI.enabled = build.versions.Count == 0 || !build.versions[0].unreleased;
+					if (GUILayout.Button("Add release", EditorStyles.miniButton)) {
+						AddVersion();
+					}
+
+					GUI.enabled = g;
+
+					if (GUILayout.Button("Add unreleased", EditorStyles.miniButton)) {
+						AddVersion(true);
+					}
+
+					void AddVersion(bool unreleased = false) {
+						var lastVer = build.versions[0];
 						var v = new Version {
-							major = build.CurrentVersion.major,
-							minor = build.CurrentVersion.minor,
-							build = build.CurrentVersion.build + 1,
-							date = DateTime.Now
+							major = lastVer.major,
+							minor = lastVer.minor,
+							build = lastVer.build + 1,
+							date = DateTime.Now,
+							unreleased = unreleased
 						};
 
 						var latest = build.versions.First()?.notes.Where(x => x.category == Note.Category.KnownIssues)
@@ -277,13 +298,33 @@ namespace Trismegistus.BuildPlus {
 						EditorGUILayout.BeginHorizontal();
 						{
 							expanded[v] = EditorGUILayout.Foldout(expanded[v], v.ToString());
-							if (expanded[v] && build.versions.Count > 0 &&
-								GUILayout.Button("Delete", EditorStyles.miniButton)) {
-								if (EditorUtility.DisplayDialog("Remove Version?",
-									"Are you sure you want to delete this version?",
-									"Yes", "No")) {
-									build.versions.Remove(v);
-									GUIUtility.ExitGUI();
+							if (expanded[v]) {
+								v.yanked = GUILayout.Toggle(v.yanked, "Yanked", GUILayout.Width(60));
+
+								if (v.unreleased) {
+									if (build.versions.LastOrDefault(x => x.unreleased) == v) {
+										if (GUILayout.Button("Release", EditorStyles.miniButton,
+											GUILayout.Width(100))) {
+											v.unreleased = false;
+										}
+									}
+								}
+								else {
+									if (build.versions.FirstOrDefault(x => !x.unreleased) == v) {
+										if (GUILayout.Button("Unrelease", EditorStyles.miniButton,
+											GUILayout.Width(100))) {
+											v.unreleased = true;
+										}
+									}
+								}
+
+								if (GUILayout.Button("Delete", EditorStyles.miniButton, GUILayout.Width(100))) {
+									if (EditorUtility.DisplayDialog("Remove Version?",
+										"Are you sure you want to delete this version?",
+										"Yes", "No")) {
+										build.versions.Remove(v);
+										GUIUtility.ExitGUI();
+									}
 								}
 							}
 						}
@@ -390,9 +431,19 @@ namespace Trismegistus.BuildPlus {
 
 
 									n.description = EditorGUILayout.TextArea(n.description, GUILayout.MaxWidth(400f));
+
 									if (GUILayout.Button("-", EditorStyles.miniButton, GUILayout.Width(20f))) {
 										v.notes.Remove(n);
 										GUIUtility.ExitGUI();
+									}
+
+									if (v.unreleased) {
+										if (GUILayout.Button("To current", EditorStyles.miniButton,
+											GUILayout.Width(80f))) {
+											build.CurrentVersion.notes.Add(n);
+											v.notes.Remove(n);
+											GUIUtility.ExitGUI();
+										}
 									}
 								}
 								EditorGUILayout.EndHorizontal();
@@ -415,7 +466,16 @@ namespace Trismegistus.BuildPlus {
 
 				GUIStyle myStyle = new GUIStyle(GUI.skin.textField);
 				myStyle.alignment = TextAnchor.MiddleRight;
-
+				
+				// save to CHANGELOG.md
+				EditorGUILayout.BeginHorizontal();
+				{
+					build.editorSettings.saveToChangelogMd =
+						GUILayout.Toggle(build.editorSettings.saveToChangelogMd, "Save to CHANGELOG.md");
+				}
+				
+				EditorGUILayout.EndHorizontal();
+				
 				// save to package.json
 				EditorGUILayout.BeginHorizontal();
 				{

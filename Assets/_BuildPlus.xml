@@ -4,10 +4,48 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
+      <build>10</build>
+      <revision />
+      <date>2020-07-08T16:21:00</date>
+      <dateString>2020.07.08.1621</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Hidden</category>
+          <description>Update publish.sh</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add REMOVED note type</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add YANKED to version</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add unreleased versions</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add DEPRECATED note type</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Save to CHANGELOG.md</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
       <build>9</build>
       <revision />
       <date>2020-07-04T13:31:00</date>
       <dateString>2020.07.04.1331</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Fixes</category>
@@ -22,6 +60,8 @@
       <revision />
       <date>2020-07-03T18:42:00</date>
       <dateString>2020.07.03.1842</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Features</category>
@@ -52,6 +92,8 @@
       <revision />
       <date>2020-06-16T00:04:00</date>
       <dateString>2020.06.16.0004</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Hidden</category>
@@ -66,6 +108,8 @@
       <revision />
       <date>2020-06-15T23:40:00</date>
       <dateString>2020.06.15.2340</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Features</category>
@@ -80,6 +124,8 @@
       <revision />
       <date>2020-06-15T19:38:00</date>
       <dateString>2020.06.15.1938</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Features</category>
@@ -98,6 +144,8 @@
       <revision />
       <date>2020-06-15T18:38:00</date>
       <dateString>2020.06.15.1838</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>General</category>
@@ -112,6 +160,8 @@
       <revision />
       <date>2020-06-12T01:29:00</date>
       <dateString>2020.06.12.0129</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Improvements</category>
@@ -130,6 +180,8 @@
       <revision />
       <date>2020-06-12T01:04:00</date>
       <dateString>2020.06.12.0104</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Features</category>
@@ -144,6 +196,8 @@
       <revision />
       <date>2020-06-08T08:21:00</date>
       <dateString>2020.06.08.0821</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Improvements</category>
@@ -162,6 +216,8 @@
       <revision />
       <date>2020-06-06T10:00:00</date>
       <dateString>2020.06.06.1000</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>General</category>
@@ -176,6 +232,8 @@
       <revision />
       <date>2013-05-15T11:54:00</date>
       <dateString>2013.05.15.1154</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Features</category>
@@ -210,6 +268,8 @@
       <revision />
       <date>2012-06-26T08:59:00</date>
       <dateString>2012.06.26.0859</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Fixes</category>
@@ -228,6 +288,8 @@
       <revision />
       <date>2012-06-22T12:03:00</date>
       <dateString>2012.06.22.1203</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Hidden</category>
@@ -258,6 +320,8 @@
       <revision />
       <date>2012-06-22T01:09:00</date>
       <dateString>2012.06.22.0109</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Improvements</category>
@@ -272,6 +336,8 @@
       <revision />
       <date>2012-06-22T00:59:00</date>
       <dateString>2012.06.22.0059</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
           <category>Features</category>
@@ -285,5 +351,17 @@
     <saveToPackageJson>true</saveToPackageJson>
     <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
     <buildPathScheme>{p_path}/Build/{p_name}_{ver}</buildPathScheme>
+    <saveToChangelogMd>true</saveToChangelogMd>
   </editorSettings>
+  <todo>
+    <major>0</major>
+    <minor>0</minor>
+    <build>0</build>
+    <revision />
+    <date>0001-01-01T00:00:00</date>
+    <dateString />
+    <yanked>false</yanked>
+    <unreleased>false</unreleased>
+    <notes />
+  </todo>
 </Build>
