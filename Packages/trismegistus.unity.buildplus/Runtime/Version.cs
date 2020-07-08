@@ -25,7 +25,8 @@ namespace Trismegistus.BuildPlus
 				Changes,
 				KnownIssues,
 				General,
-				Removed
+				Removed,
+				Deprecated
 			}
 			
 			public Category category;

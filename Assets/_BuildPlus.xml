@@ -4,22 +4,6 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
-      <build>11</build>
-      <revision />
-      <date>2020-07-08T17:10:00</date>
-      <dateString>2020.07.08.1710</dateString>
-      <yanked>false</yanked>
-      <unreleased>true</unreleased>
-      <notes>
-        <Note>
-          <category>Features</category>
-          <description>Save to CHANGELOG.md</description>
-        </Note>
-      </notes>
-    </Version>
-    <Version>
-      <major>1</major>
-      <minor>0</minor>
       <build>10</build>
       <revision />
       <date>2020-07-08T16:21:00</date>
@@ -27,6 +11,10 @@
       <yanked>false</yanked>
       <unreleased>false</unreleased>
       <notes>
+        <Note>
+          <category>Hidden</category>
+          <description>Update publish.sh</description>
+        </Note>
         <Note>
           <category>Features</category>
           <description>Add REMOVED note type</description>
@@ -38,6 +26,14 @@
         <Note>
           <category>Features</category>
           <description>Add unreleased versions</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add DEPRECATED note type</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Save to CHANGELOG.md</description>
         </Note>
       </notes>
     </Version>
@@ -355,6 +351,7 @@
     <saveToPackageJson>true</saveToPackageJson>
     <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
     <buildPathScheme>{p_path}/Build/{p_name}_{ver}</buildPathScheme>
+    <saveToChangelogMd>true</saveToChangelogMd>
   </editorSettings>
   <todo>
     <major>0</major>

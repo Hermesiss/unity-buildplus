@@ -109,7 +109,8 @@ namespace Trismegistus.BuildPlus {
 				{Note.Category.Changes, new Color(1f, 0.59f, 0.29f)},
 				{Note.Category.KnownIssues, new Color(1f, 0.34f, 0.39f)},
 				{Note.Category.General, GUI.contentColor},
-				{Note.Category.Removed, new Color(1f, 0.08f, 0.22f)}
+				{Note.Category.Removed, new Color(1f, 0.08f, 0.22f)},
+				{Note.Category.Deprecated, new Color(1f, 0.57f, 0.32f)}
 			};
 
 			expanded.Clear();
@@ -158,6 +159,11 @@ namespace Trismegistus.BuildPlus {
 				var manifest2 = Regex.Replace(manifest, "\"version\": \"[0-9]*.[0-9]*.[0-9]*\"",
 					$"\"version\": \"{bundleVersion}\"");
 				File.WriteAllText(build.editorSettings.packageJsonPath, manifest2);
+			}
+			
+			if (build.editorSettings.saveToChangelogMd) {
+				var b = new ChangelogBuilder(build);
+				b.Build();
 			}
 		}
 
@@ -460,7 +466,16 @@ namespace Trismegistus.BuildPlus {
 
 				GUIStyle myStyle = new GUIStyle(GUI.skin.textField);
 				myStyle.alignment = TextAnchor.MiddleRight;
-
+				
+				// save to CHANGELOG.md
+				EditorGUILayout.BeginHorizontal();
+				{
+					build.editorSettings.saveToChangelogMd =
+						GUILayout.Toggle(build.editorSettings.saveToChangelogMd, "Save to CHANGELOG.md");
+				}
+				
+				EditorGUILayout.EndHorizontal();
+				
 				// save to package.json
 				EditorGUILayout.BeginHorizontal();
 				{

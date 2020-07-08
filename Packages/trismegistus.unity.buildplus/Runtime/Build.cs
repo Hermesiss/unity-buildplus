@@ -14,6 +14,7 @@ namespace Trismegistus.BuildPlus {
 		public bool saveToPackageJson;
 		public string packageJsonPath;
 		public string buildPathScheme;
+		public bool saveToChangelogMd;
 	}
 
 	[Serializable]
@@ -35,9 +36,7 @@ namespace Trismegistus.BuildPlus {
 		public Version todo = new Version();
 
 		public Version CurrentVersion {
-			get {
-				return versions.Count > 0 ? versions.FirstOrDefault(x => !x.unreleased) : null;
-			}
+			get { return versions.Count > 0 ? versions.FirstOrDefault(x => !x.unreleased) : null; }
 		}
 
 		public override void PreSerialize() {
