@@ -24,7 +24,8 @@ namespace Trismegistus.BuildPlus
 				Fixes,
 				Changes,
 				KnownIssues,
-				General
+				General,
+				Removed
 			}
 			
 			public Category category;
@@ -52,6 +53,14 @@ namespace Trismegistus.BuildPlus
 		public string revision = string.Empty;
 		public DateTime date;
 		public string dateString; // workaround for Unity not serializing DateTime to ScriptableObjects
+		/// <summary>
+		/// Try if release is fixing serious bug or security issue
+		/// <see cref="https://github.com/olivierlacan/keep-a-changelog/blob/0417b6b4e824f459de3ad57c8ba7d4ea0967329c/README.md#what-about-yanked-releases"/>
+		/// </summary>
+		public bool yanked;
+
+		public bool unreleased;
+			
 		
 		public List<Note> notes = new List<Note>();
 		
@@ -59,7 +68,9 @@ namespace Trismegistus.BuildPlus
 		{
 			if (date != DateTime.MinValue)
 				dateString = date.ToString(KDateFormat);
-			return string.Format("{0}.{1}.{2}{3} ({4})", major, minor, build, revision, dateString);
+			var yankedStr = yanked ? "[YANKED] " : "";
+			var unreleasedStr = unreleased ? "***" : "";
+			return $"{unreleasedStr}{major}.{minor}.{build}{revision} {yankedStr}({dateString})";
 		}
 		
 		public override void PreSerialize()
