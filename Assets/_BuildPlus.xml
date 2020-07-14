@@ -4,6 +4,66 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
+      <build>12</build>
+      <revision />
+      <date>2020-07-14T13:49:00</date>
+      <dateString>2020.07.14.1349</dateString>
+      <yanked>false</yanked>
+      <unreleased>true</unreleased>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Add git-based build variables</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Implement Android target path construction</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Implement iOS target path construction</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Implement WebGL target path construction</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
+      <build>11</build>
+      <revision />
+      <date>2020-07-14T14:41:00</date>
+      <dateString>2020.07.14.1441</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Hidden</category>
+          <description>Update README.md</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Insert new release version if there's any unreleased</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>Android target path construction not implemented</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>iOS target path construction not implemented</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
       <build>10</build>
       <revision />
       <date>2020-07-08T16:21:00</date>
@@ -34,6 +94,18 @@
         <Note>
           <category>Features</category>
           <description>Save to CHANGELOG.md</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>Android target path construction not implemented</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>iOS target path construction not implemented</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
         </Note>
       </notes>
     </Version>

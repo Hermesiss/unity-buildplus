@@ -8,6 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Add git-based build variables
+
+### Fixed
+
+- Implement Android target path construction
+- Implement iOS target path construction
+- Implement WebGL target path construction
+
+## 1.0.11 - 2020-07-14
+
+### Added
+
+- Insert new release version if there's any unreleased
+
+### Security
+
+- Android target path construction not implemented
+- iOS target path construction not implemented
+- WebGL target path construction not implemented
+
 ## 1.0.10 - 2020-07-08
 
 ### Added
@@ -17,6 +39,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add unreleased versions
 - Add DEPRECATED note type
 - Save to CHANGELOG.md
+
+### Security
+
+- Android target path construction not implemented
+- iOS target path construction not implemented
+- WebGL target path construction not implemented
 
 ## 1.0.9 - 2020-07-04
 

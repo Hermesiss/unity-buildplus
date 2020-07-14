@@ -160,7 +160,7 @@ namespace Trismegistus.BuildPlus {
 					$"\"version\": \"{bundleVersion}\"");
 				File.WriteAllText(build.editorSettings.packageJsonPath, manifest2);
 			}
-			
+
 			if (build.editorSettings.saveToChangelogMd) {
 				var b = new ChangelogBuilder(build);
 				b.Build();
@@ -241,6 +241,44 @@ namespace Trismegistus.BuildPlus {
 			}
 		}
 
+		private void AddVersion(bool unreleased = false) {
+			Version lastVer = null;
+			if (build.versions.Count > 0) {
+				if (unreleased) {
+					lastVer = build.versions[0];
+				}
+				else {
+					lastVer = build.CurrentVersion;
+					foreach (var version in build.versions.Where(x => x.unreleased)) {
+						version.build++;
+					}
+				}
+			}
+
+			if (lastVer == null) {
+				lastVer = new Version();
+			}
+
+			var v = new Version {
+				major = lastVer.major,
+				minor = lastVer.minor,
+				build = lastVer.build + 1,
+				date = DateTime.Now,
+				unreleased = unreleased
+			};
+
+			var latestIssues = build.CurrentVersion?.notes.Where(x => x.category == Note.Category.KnownIssues)
+				.Select(x => (Note) x.Clone());
+
+			if (latestIssues != null) v.notes = latestIssues.ToList();
+
+			build.versions.Add(v);
+			build.versions = build.versions.OrderByDescending(ver => ver.major)
+				.ThenByDescending(ver => ver.minor)
+				.ThenByDescending(ver => ver.build)
+				.ThenByDescending(ver => ver.date).ToList();
+		}
+
 		void OnGUI() {
 			float buttonWidth = 100f;
 			float padding = 10f;
@@ -251,39 +289,18 @@ namespace Trismegistus.BuildPlus {
 				EditorGUILayout.BeginHorizontal();
 				{
 					GUILayout.Label("Version");
-					var g = GUI.enabled;
-					GUI.enabled = build.versions.Count == 0 || !build.versions[0].unreleased;
+
+
 					if (GUILayout.Button("Add release", EditorStyles.miniButton)) {
 						AddVersion();
+						//if (build.versions.Count == 0 || !build.versions[0].unreleased)
 					}
 
-					GUI.enabled = g;
 
 					if (GUILayout.Button("Add unreleased", EditorStyles.miniButton)) {
 						AddVersion(true);
 					}
 
-					void AddVersion(bool unreleased = false) {
-						var lastVer = build.versions[0];
-						var v = new Version {
-							major = lastVer.major,
-							minor = lastVer.minor,
-							build = lastVer.build + 1,
-							date = DateTime.Now,
-							unreleased = unreleased
-						};
-
-						var latest = build.versions.First()?.notes.Where(x => x.category == Note.Category.KnownIssues)
-							.Select(x => (Note) x.Clone());
-
-						if (latest != null) v.notes = latest.ToList();
-
-						build.versions.Add(v);
-						build.versions = build.versions.OrderByDescending(ver => ver.major)
-							.ThenByDescending(ver => ver.minor)
-							.ThenByDescending(ver => ver.build)
-							.ThenByDescending(ver => ver.date).ToList();
-					}
 
 					GUILayout.FlexibleSpace();
 				}
@@ -295,6 +312,9 @@ namespace Trismegistus.BuildPlus {
 						if (!expanded.ContainsKey(v))
 							expanded[v] = v == build.CurrentVersion;
 
+						var oldestUnreleased = build.versions.LastOrDefault(x => x.unreleased) == v;
+						var latestReleased = build.versions.FirstOrDefault(x => !x.unreleased) == v;
+
 						EditorGUILayout.BeginHorizontal();
 						{
 							expanded[v] = EditorGUILayout.Foldout(expanded[v], v.ToString());
@@ -302,7 +322,7 @@ namespace Trismegistus.BuildPlus {
 								v.yanked = GUILayout.Toggle(v.yanked, "Yanked", GUILayout.Width(60));
 
 								if (v.unreleased) {
-									if (build.versions.LastOrDefault(x => x.unreleased) == v) {
+									if (oldestUnreleased) {
 										if (GUILayout.Button("Release", EditorStyles.miniButton,
 											GUILayout.Width(100))) {
 											v.unreleased = false;
@@ -310,7 +330,7 @@ namespace Trismegistus.BuildPlus {
 									}
 								}
 								else {
-									if (build.versions.FirstOrDefault(x => !x.unreleased) == v) {
+									if (latestReleased) {
 										if (GUILayout.Button("Unrelease", EditorStyles.miniButton,
 											GUILayout.Width(100))) {
 											v.unreleased = true;
@@ -322,7 +342,9 @@ namespace Trismegistus.BuildPlus {
 									if (EditorUtility.DisplayDialog("Remove Version?",
 										"Are you sure you want to delete this version?",
 										"Yes", "No")) {
-										build.versions.Remove(v);
+										RemoveVersion(v);
+										
+										
 										GUIUtility.ExitGUI();
 									}
 								}
@@ -397,7 +419,7 @@ namespace Trismegistus.BuildPlus {
 									var oldColor = GUI.contentColor;
 									GUI.color = color;
 									if (GUILayout.Button(s, EditorStyles.miniButton)) {
-										var note = new Note() {category = category};
+										var note = new Note {category = category};
 										v.notes.Add(note);
 										v.notes = v.notes.OrderBy(n => n.category).ToList();
 									}
@@ -466,16 +488,16 @@ namespace Trismegistus.BuildPlus {
 
 				GUIStyle myStyle = new GUIStyle(GUI.skin.textField);
 				myStyle.alignment = TextAnchor.MiddleRight;
-				
+
 				// save to CHANGELOG.md
 				EditorGUILayout.BeginHorizontal();
 				{
 					build.editorSettings.saveToChangelogMd =
 						GUILayout.Toggle(build.editorSettings.saveToChangelogMd, "Save to CHANGELOG.md");
 				}
-				
+
 				EditorGUILayout.EndHorizontal();
-				
+
 				// save to package.json
 				EditorGUILayout.BeginHorizontal();
 				{
@@ -566,6 +588,17 @@ namespace Trismegistus.BuildPlus {
 			}
 
 			GUILayout.EndArea();
+		}
+
+		private void RemoveVersion(Version version) {
+			build.versions.Remove(version);
+			var current = build.CurrentVersion;
+			var buildAdd = 1;
+			foreach (var v in build.versions.Where(x => x.unreleased).Reverse()) {
+				v.major = current.major;
+				v.minor = current.minor;
+				v.build = current.build + buildAdd++;
+			}
 		}
 
 		private string GetBuildPath() {

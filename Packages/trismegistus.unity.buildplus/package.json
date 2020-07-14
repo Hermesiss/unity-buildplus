@@ -1,6 +1,6 @@
 {
   "name": "trismegistus.unity.buildplus",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "displayName": "Trismegistus Build+",
   "description": "Semver utility for Unity projects with changelog / release notes generator",
   "unity": "2019.2",

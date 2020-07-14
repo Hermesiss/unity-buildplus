@@ -17,6 +17,40 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 0
+      build: 12
+      revision: 
+      dateString: 2020.07.14.1349
+      yanked: 0
+      unreleased: 1
+      notes:
+      - category: 1
+        description: Add git-based build variables
+      - category: 3
+        description: Implement Android target path construction
+      - category: 3
+        description: Implement iOS target path construction
+      - category: 3
+        description: Implement WebGL target path construction
+    - major: 1
+      minor: 0
+      build: 11
+      revision: 
+      dateString: 2020.07.14.1441
+      yanked: 0
+      unreleased: 0
+      notes:
+      - category: 0
+        description: Update README.md
+      - category: 1
+        description: Insert new release version if there's any unreleased
+      - category: 5
+        description: Android target path construction not implemented
+      - category: 5
+        description: iOS target path construction not implemented
+      - category: 5
+        description: WebGL target path construction not implemented
+    - major: 1
+      minor: 0
       build: 10
       revision: 
       dateString: 2020.07.08.1621
@@ -35,6 +69,12 @@ MonoBehaviour:
         description: Add DEPRECATED note type
       - category: 1
         description: Save to CHANGELOG.md
+      - category: 5
+        description: Android target path construction not implemented
+      - category: 5
+        description: iOS target path construction not implemented
+      - category: 5
+        description: WebGL target path construction not implemented
     - major: 1
       minor: 0
       build: 9
@@ -226,9 +266,18 @@ MonoBehaviour:
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
       buildPathScheme: '{p_path}/Build/{p_name}_{ver}'
       saveToChangelogMd: 1
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.0.10 (2020.07.08.1621)\r\n  FEATURES\r\n   
-      * Add REMOVED note type\r\n    * Add YANKED to version\r\n    * Add unreleased
-      versions\r\n    * Add DEPRECATED note type\r\n    * Save to CHANGELOG.md\r\n\r\nv1.0.9
+    releaseNotes: "RELEASE NOTES\r\n\r\nv***1.0.12 (2020.07.14.1349)\r\n  FEATURES\r\n   
+      * Add git-based build variables\r\n  FIXES\r\n    * Implement Android target
+      path construction\r\n    * Implement iOS target path construction\r\n    *
+      Implement WebGL target path construction\r\n\r\nv1.0.11 (2020.07.14.1441)\r\n 
+      FEATURES\r\n    * Insert new release version if there's any unreleased\r\n 
+      KNOWN ISSUES\r\n    * Android target path construction not implemented\r\n   
+      * iOS target path construction not implemented\r\n    * WebGL target path construction
+      not implemented\r\n\r\nv1.0.10 (2020.07.08.1621)\r\n  FEATURES\r\n    * Add
+      REMOVED note type\r\n    * Add YANKED to version\r\n    * Add unreleased versions\r\n   
+      * Add DEPRECATED note type\r\n    * Save to CHANGELOG.md\r\n  KNOWN ISSUES\r\n   
+      * Android target path construction not implemented\r\n    * iOS target path
+      construction not implemented\r\n    * WebGL target path construction not implemented\r\n\r\nv1.0.9
       (2020.07.04.1331)\r\n  FIXES\r\n    * Fix smartFormat error while parsing uncommon
       symbols\r\n\r\nv1.0.8 (2020.07.03.1842)\r\n  FEATURES\r\n    * Build path editor\r\n 
       FIXES\r\n    * Clone Known Issues from last version instead of copying references\r\n   

@@ -1,5 +1,7 @@
 # Build+ Unity Extension
 
+![](https://raw.githubusercontent.com/Hermesiss/unity-buildplus/master/Packages/trismegistus.unity.buildplus/Documentation~/images/mainWindow.jpg)
+
 ## What is this?
 
 A UPM version of [Build+](https://assetstore.unity.com/packages/tools/utilities/build-3720). There's no way to contact its owner : (
@@ -13,21 +15,31 @@ A UPM version of [Build+](https://assetstore.unity.com/packages/tools/utilities/
   * 🟪 Improvements
   * 🟦 Fixes
   * 🟧 Changes
+  * 🟧 Deprecated
   * 🟥 KnownIssues
+  * 🟥 Removed
   * ⬜ General
+* Add unreleased versions with planned changes
 * Update version:
   * PlayerSettings
-  * package.json at given path
-* Build with generated path `Builds/ProductName_0.0.0_StandaloneWindows64/ProductName.exe`
+  * `package.json` at given path (for distributing packages to UPM)
+  * `CHANGELOG.md` based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+* Build with generated path using variables:
+  * `p_path` - path to project folder
+  * `platform` - current build target
+  * `ver` - last version
+  * `p_name` - Application.productName
 * Read all information at runtime from ScriptableObject
+
+## Dependencies
+
+Handled automatically when installed from registry
+
+* [SmartFormat](https://github.com/Hermesiss/unity-smartformat) - parsing build path template
 
 ## Installation
 
-You have several options
-
-### From registry
-
-First, you need to add a scoped registry to `Packages/manifest.json`: 
+First, you need to add a scoped registry to `Packages/manifest.json`:
 
 ```json
 "scopedRegistries": [
@@ -42,12 +54,6 @@ First, you need to add a scoped registry to `Packages/manifest.json`:
 ```
 
 Then open `Window/Package manager`, `All packages`, and install `Trismegistus Build+`
-
-### From git url
-
-1. Open `Window/Package manager`
-2. `+`, `Add from git URL`
-3. Enter `https://github.com/Hermesiss/unity-buildplus.git?path=/Packages/trismegistus.unity.buildplus`
 
 ## Readme from creator
 
