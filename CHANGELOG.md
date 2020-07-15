@@ -14,9 +14,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Implement WebGL target path construction
+
+## 1.0.12 - 2020-07-16
+
+### Fixed
+
 - Implement Android target path construction
 - Implement iOS target path construction
-- Implement WebGL target path construction
+
+### Security
+
+- WebGL target path construction not implemented
 
 ## 1.0.11 - 2020-07-14
 

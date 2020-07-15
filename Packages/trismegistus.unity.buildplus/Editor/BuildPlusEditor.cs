@@ -219,6 +219,7 @@ namespace Trismegistus.BuildPlus {
 				$"{build.CurrentVersion.major}.{build.CurrentVersion.minor}.{build.CurrentVersion.build}";
 
 			var buildLocation = GetBuildPath();
+			Debug.Log(buildLocation);
 			/*Path.Combine("Builds",
 			Application.productName + "_" + versionPostfix + "_" +
 			EditorUserBuildSettings.activeBuildTarget.ToString("G"),
@@ -229,11 +230,15 @@ namespace Trismegistus.BuildPlus {
 				//			foreach (string dll in dlls)
 				//				File.Copy(dll, Path.GetDirectoryName(buildLocation) + "/" + Path.GetFileName(dll), true);
 
-				BuildPipeline.BuildPlayer(
-					EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(scene => scene.path).ToArray(),
-					buildLocation,
-					EditorUserBuildSettings.activeBuildTarget,
-					BuildOptions.ShowBuiltPlayer);
+				var options = new BuildPlayerOptions {
+					scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(scene => scene.path)
+						.ToArray(),
+					locationPathName = buildLocation,
+					target = EditorUserBuildSettings.activeBuildTarget,
+					options = BuildOptions.ShowBuiltPlayer
+				};
+
+				BuildPipeline.BuildPlayer(options);
 
 				var folder = new FileInfo(buildLocation).DirectoryName;
 
@@ -601,22 +606,28 @@ namespace Trismegistus.BuildPlus {
 			}
 		}
 
-		private string GetBuildPath() {
+		private string GetBuildPath(bool fullPath = true) {
 			try {
 				var dict = _buildPathDict.ToDictionary(pair => pair.Key, pair => pair.Value.parameter);
 				var path = Smart.Format(build.editorSettings.buildPathScheme.Replace("\\", "/"),
 					dict
 				);
-				switch (EditorUserBuildSettings.activeBuildTarget) {
-					case BuildTarget.StandaloneWindows:
-					case BuildTarget.StandaloneWindows64:
-						path += $"/{Application.productName}.exe";
-						break;
-					default:
-						throw new NotImplementedException(
-							$"Building for platform {EditorUserBuildSettings.activeBuildTarget} is not yet supported, " +
-							"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
-				}
+				if (fullPath)
+					switch (EditorUserBuildSettings.activeBuildTarget) {
+						case BuildTarget.StandaloneWindows:
+						case BuildTarget.StandaloneWindows64:
+							path += $"/{Application.productName}.exe";
+							break;
+						case BuildTarget.Android:
+							path += ".apk";
+							break;
+						case BuildTarget.iOS:
+							break;
+						default:
+							throw new NotImplementedException(
+								$"Building for platform {EditorUserBuildSettings.activeBuildTarget} is not yet supported, " +
+								"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
+					}
 
 				return Path.GetFullPath(path);
 			}

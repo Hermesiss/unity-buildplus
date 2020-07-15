@@ -4,7 +4,7 @@
     <Version>
       <major>1</major>
       <minor>0</minor>
-      <build>12</build>
+      <build>13</build>
       <revision />
       <date>2020-07-14T13:49:00</date>
       <dateString>2020.07.14.1349</dateString>
@@ -17,15 +17,31 @@
         </Note>
         <Note>
           <category>Fixes</category>
+          <description>Implement WebGL target path construction</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>0</minor>
+      <build>12</build>
+      <revision />
+      <date>2020-07-16T01:40:00</date>
+      <dateString>2020.07.16.0140</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
           <description>Implement Android target path construction</description>
         </Note>
         <Note>
           <category>Fixes</category>
           <description>Implement iOS target path construction</description>
-        </Note>
-        <Note>
-          <category>Fixes</category>
-          <description>Implement WebGL target path construction</description>
         </Note>
       </notes>
     </Version>
