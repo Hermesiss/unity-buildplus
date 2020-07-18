@@ -55,6 +55,16 @@ First, you need to add a scoped registry to `Packages/manifest.json`:
 
 Then open `Window/Package manager`, `All packages`, and install `Trismegistus Build+`
 
+## Add your own build path parameters
+
+You can see example usage in `StandardBuildParameters`
+
+1. Create static method with `PathParameter` return type and no arguments. Preferably in Editor class
+1. Add `[BuildPath]` attribute
+1. Construct proper `PathParameter`
+
+This method will be called on opening Build+ window, saving, building or pressing "Refresh".
+
 ## Readme from creator
 
 Build+ can help you to version your app in a straight-forward way and avoid some of the headaches with maintaining release notes outside of the development environment. With Build+ you can even include your release notes in the app itself! As Build+ evolves, additional useful features will be added to automating your builds.

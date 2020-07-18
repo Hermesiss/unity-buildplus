@@ -16,6 +16,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implement WebGL target path construction
 
+## 1.1.1 - 2020-07-18
+
+### Added
+
+- Add ability to write custom build path parameters
+
+### Changed
+
+- Change build path parameters collection using BuildPathAttribute
+
+### Security
+
+- WebGL target path construction not implemented
+
 ## 1.0.12 - 2020-07-16
 
 ### Fixed

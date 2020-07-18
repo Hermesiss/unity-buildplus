@@ -18,7 +18,7 @@ namespace Trismegistus.BuildPlus {
 		static readonly string kXmlPath = "Assets/_BuildPlus.xml";
 		static readonly string kAssetPath = "Assets/_BuildPlus.asset";
 
-		Build build;
+		internal static Build build;
 		Dictionary<Version, bool> expanded = new Dictionary<Version, bool>();
 		Vector2 scrollPos;
 
@@ -114,6 +114,7 @@ namespace Trismegistus.BuildPlus {
 			};
 
 			expanded.Clear();
+			UpdateDict();
 		}
 
 		private bool LoadBuildAsset(out Build b) {
@@ -134,6 +135,7 @@ namespace Trismegistus.BuildPlus {
 		}
 
 		void Save() {
+			UpdateDict();
 			File.WriteAllText(kXmlPath, build.ToXML());
 			BuildPlusSO bso = null;
 			if (File.Exists(kAssetPath))
@@ -208,7 +210,7 @@ namespace Trismegistus.BuildPlus {
 			}
 		}
 
-		void DoBuild() {
+		private void DoBuild() {
 			// Update latest version's date/time to reflect build
 			build.CurrentVersion.date = DateTime.Now;
 			Save();
@@ -298,7 +300,6 @@ namespace Trismegistus.BuildPlus {
 
 					if (GUILayout.Button("Add release", EditorStyles.miniButton)) {
 						AddVersion();
-						//if (build.versions.Count == 0 || !build.versions[0].unreleased)
 					}
 
 
@@ -348,8 +349,8 @@ namespace Trismegistus.BuildPlus {
 										"Are you sure you want to delete this version?",
 										"Yes", "No")) {
 										RemoveVersion(v);
-										
-										
+
+
 										GUIUtility.ExitGUI();
 									}
 								}
@@ -537,25 +538,27 @@ namespace Trismegistus.BuildPlus {
 						}
 					}
 
-
 					GUI.enabled = guiEnabledOld;
 				}
 				EditorGUILayout.EndHorizontal();
+
 
 				EditorGUILayout.BeginVertical();
 				{
 					EditorGUILayout.BeginHorizontal();
 					{
-						var v = build.versions[0];
-						UpdateDict(v);
 						build.editorSettings.buildPathScheme =
 							GUILayout.TextField(build.editorSettings.buildPathScheme,
 								new GUIStyle(GUI.skin.textField) {stretchWidth = true});
+						if (GUILayout.Button("Refresh", EditorStyles.miniButton, GUILayout.Width(buttonWidth))) {
+							UpdateDict();
+						}
 
 						if (GUILayout.Button("Add parameter", EditorStyles.miniButton, GUILayout.Width(buttonWidth))) {
 							var menu = new GenericMenu();
-							foreach (var s in _buildPathDict.Select(x => x.Key)) {
-								AddMenu(menu, _buildPathDict[s].description, s);
+							foreach (var pathParameter in _buildPathDict.Select(x => x.Value)) {
+								AddMenu(menu, $"{pathParameter.menuPath}/{pathParameter.description}",
+									pathParameter.parameter);
 							}
 
 							menu.ShowAsContext();
@@ -638,34 +641,16 @@ namespace Trismegistus.BuildPlus {
 
 		private static Dictionary<Note.Category, Color> _categoryColors;
 
-		private static Dictionary<string, PathParameter> _buildPathDict;
+		private static Dictionary<string, PathParameter> _buildPathDict = new Dictionary<string, PathParameter>();
 
-		private static void UpdateDict(Version v) {
-			_buildPathDict = new Dictionary<string, PathParameter> {
-				{
-					"p_path",
-					new PathParameter(new DirectoryInfo(Application.dataPath).Parent?.FullName,
-						"Path to project folder")
-				}, {
-					"platform",
-					new PathParameter(EditorUserBuildSettings.activeBuildTarget.ToString(), "Current build target")
-				},
-				{"ver", new PathParameter($"{v.major}.{v.minor}.{v.build}", "Last version")},
-				{"p_name", new PathParameter(Application.productName, "ProductName")}
-			};
+		private static void UpdateDict() {
+			var pathParams = BuildPathAttribute.CallAllMethods();
+			_buildPathDict = new Dictionary<string, PathParameter>();
+			foreach (var pathParameter in pathParams) {
+				_buildPathDict.Add(pathParameter.key, pathParameter);
+			}
 		}
 
 		private static Color GetColorByCategory(Note.Category category) => _categoryColors[category];
-	}
-
-	[Serializable]
-	public class PathParameter {
-		public string parameter;
-		public string description;
-
-		public PathParameter(string parameter, string description) {
-			this.parameter = parameter;
-			this.description = description;
-		}
 	}
 }

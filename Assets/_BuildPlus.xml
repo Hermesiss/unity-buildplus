@@ -3,11 +3,11 @@
   <versions>
     <Version>
       <major>1</major>
-      <minor>0</minor>
-      <build>13</build>
+      <minor>1</minor>
+      <build>2</build>
       <revision />
-      <date>2020-07-14T13:49:00</date>
-      <dateString>2020.07.14.1349</dateString>
+      <date>2020-07-18T13:29:00</date>
+      <dateString>2020.07.18.1329</dateString>
       <yanked>false</yanked>
       <unreleased>true</unreleased>
       <notes>
@@ -18,6 +18,30 @@
         <Note>
           <category>Fixes</category>
           <description>Implement WebGL target path construction</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>1</minor>
+      <build>1</build>
+      <revision />
+      <date>2020-07-18T13:21:00</date>
+      <dateString>2020.07.18.1321</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Add ability to write custom build path parameters</description>
+        </Note>
+        <Note>
+          <category>Changes</category>
+          <description>Change build path parameters collection using BuildPathAttribute</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
         </Note>
       </notes>
     </Version>
