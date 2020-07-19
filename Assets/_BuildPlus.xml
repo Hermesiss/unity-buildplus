@@ -4,7 +4,7 @@
     <Version>
       <major>1</major>
       <minor>1</minor>
-      <build>2</build>
+      <build>3</build>
       <revision />
       <date>2020-07-18T13:29:00</date>
       <dateString>2020.07.18.1329</dateString>
@@ -18,6 +18,30 @@
         <Note>
           <category>Fixes</category>
           <description>Implement WebGL target path construction</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>1</minor>
+      <build>2</build>
+      <revision />
+      <date>2020-07-19T14:40:00</date>
+      <dateString>2020.07.19.1440</dateString>
+      <yanked>true</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Improvements</category>
+          <description>Higher reflection speed</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Fix adding parameter instead of key</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
         </Note>
       </notes>
     </Version>

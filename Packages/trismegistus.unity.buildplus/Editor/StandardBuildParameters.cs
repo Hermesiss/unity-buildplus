@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 	
 namespace Trismegistus.BuildPlus {
+	[BuildPathProvider]
 	public static class StandardBuildParameters {
 		[BuildPath]
 		public static PathParameter ProjectName() {

@@ -59,8 +59,9 @@ Then open `Window/Package manager`, `All packages`, and install `Trismegistus Bu
 
 You can see example usage in `StandardBuildParameters`
 
-1. Create static method with `PathParameter` return type and no arguments. Preferably in Editor class
-1. Add `[BuildPath]` attribute
+1. Create static method with `PathParameter` return type and no arguments. Only in Editor class
+1. Add `[BuildPathProvider]` attribute to class
+1. Add `[BuildPath]` attribute to method
 1. Construct proper `PathParameter`
 
 This method will be called on opening Build+ window, saving, building or pressing "Refresh".

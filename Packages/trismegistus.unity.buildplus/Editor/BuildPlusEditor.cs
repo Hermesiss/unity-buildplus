@@ -558,7 +558,7 @@ namespace Trismegistus.BuildPlus {
 							var menu = new GenericMenu();
 							foreach (var pathParameter in _buildPathDict.Select(x => x.Value)) {
 								AddMenu(menu, $"{pathParameter.menuPath}/{pathParameter.description}",
-									pathParameter.parameter);
+									pathParameter.key);
 							}
 
 							menu.ShowAsContext();
