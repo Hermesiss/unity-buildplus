@@ -619,7 +619,7 @@ namespace Trismegistus.BuildPlus {
 					switch (EditorUserBuildSettings.activeBuildTarget) {
 						case BuildTarget.StandaloneWindows:
 						case BuildTarget.StandaloneWindows64:
-							path += $"/{Application.productName}.exe";
+							path += $"/{Application.productName.ReplaceUnsupportedSymbols()}.exe";
 							break;
 						case BuildTarget.Android:
 							path += ".apk";
@@ -631,21 +631,12 @@ namespace Trismegistus.BuildPlus {
 								$"Building for platform {EditorUserBuildSettings.activeBuildTarget} is not yet supported, " +
 								"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
 					}
-
-				path = DeleteUnsupportedSymbols(path);
-
-				return Path.GetFullPath(path);
+				
+				return Path.GetFullPath(path.ReplaceMultiple('_'));
 			}
 			catch (Exception e) {
 				return $"ERROR: {e}";
 			}
-		}
-
-		private static string DeleteUnsupportedSymbols(string path) {
-			const string symbols = ":*?\"<>|";
-
-			return symbols.Aggregate(path, (current, symbol)
-				=> current.Replace(symbol.ToString(), string.Empty));
 		}
 
 		private static Dictionary<Note.Category, Color> _categoryColors;

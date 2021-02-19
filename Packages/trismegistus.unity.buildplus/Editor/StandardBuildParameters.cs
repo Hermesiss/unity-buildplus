@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
-	
+
 namespace Trismegistus.BuildPlus {
 	[BuildPathProvider]
 	public static class StandardBuildParameters {
 		[BuildPath]
 		public static PathParameter ProjectName() {
-			return new PathParameter("p_name", "Project", Application.productName,
+			return new PathParameter("p_name", "Project", Application.productName.ReplaceUnsupportedSymbols(),
 				"ProductName");
 		}
 
