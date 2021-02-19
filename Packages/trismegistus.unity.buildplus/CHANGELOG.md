@@ -16,6 +16,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implement WebGL target path construction
 
+## 1.1.4 - 2021-02-19 [YANKED]
+
+### Fixed
+
+- Fix
+
+### Security
+
+- WebGL target path construction not implemented
+
+## 1.1.3 - 2021-02-19
+
+### Fixed
+
+- Delete unsupported symbols from path
+
+### Security
+
+- WebGL target path construction not implemented
+
 ## 1.1.2 - 2020-07-19 [YANKED]
 
 ### Changed

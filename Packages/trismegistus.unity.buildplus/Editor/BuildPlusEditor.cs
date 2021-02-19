@@ -632,11 +632,20 @@ namespace Trismegistus.BuildPlus {
 								"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
 					}
 
+				path = DeleteUnsupportedSymbols(path);
+
 				return Path.GetFullPath(path);
 			}
 			catch (Exception e) {
 				return $"ERROR: {e}";
 			}
+		}
+
+		private static string DeleteUnsupportedSymbols(string path) {
+			const string symbols = ":*?\"<>|";
+
+			return symbols.Aggregate(path, (current, symbol)
+				=> current.Replace(symbol.ToString(), string.Empty));
 		}
 
 		private static Dictionary<Note.Category, Color> _categoryColors;
