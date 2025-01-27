@@ -17,7 +17,7 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 1
-      build: 6
+      build: 7
       revision: 
       dateString: 2020.07.18.1329
       yanked: 0
@@ -27,6 +27,18 @@ MonoBehaviour:
         description: Add git-based build variables
       - category: 3
         description: Implement WebGL target path construction
+    - major: 1
+      minor: 2
+      build: 0
+      revision: 
+      dateString: 2025.01.27.1138
+      yanked: 0
+      unreleased: 0
+      notes:
+      - category: 4
+        description: Remove custom Smart format, use com.unity.localization instead
+      - category: 5
+        description: WebGL target path construction not implemented
     - major: 1
       minor: 1
       build: 5
@@ -338,33 +350,35 @@ MonoBehaviour:
       saveToPlayerSettings: 1
       saveToPackageJson: 1
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
-      buildPathScheme: '{p_path}/Build/{p_name}_{ver}'
+      buildPathScheme: '{p_path}/Builds/{p_name}_{ver}'
       saveToChangelogMd: 1
-    releaseNotes: "RELEASE NOTES\r\n\r\nv***1.1.6 (2020.07.18.1329)\r\n  FEATURES\r\n   
+    releaseNotes: "RELEASE NOTES\r\n\r\nv***1.1.7 (2020.07.18.1329)\r\n  FEATURES\r\n   
       * Add git-based build variables\r\n  FIXES\r\n    * Implement WebGL target
-      path construction\r\n\r\nv1.1.5 (2021.02.19.1952)\r\n  FIXES\r\n    * Fix\r\n 
-      KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.1.4
-      [YANKED] (2021.02.19.1855)\r\n  FIXES\r\n    * Fix\r\n  KNOWN ISSUES\r\n   
-      * WebGL target path construction not implemented\r\n\r\nv1.1.3 (2021.02.19.1841)\r\n 
-      FIXES\r\n    * Delete unsupported symbols from path\r\n  KNOWN ISSUES\r\n   
-      * WebGL target path construction not implemented\r\n\r\nv1.1.2 [YANKED] (2020.07.19.1440)\r\n 
-      IMPROVEMENTS\r\n    * Higher reflection speed\r\n  FIXES\r\n    * Fix adding
-      parameter instead of key\r\n  KNOWN ISSUES\r\n    * WebGL target path construction
-      not implemented\r\n\r\nv1.1.1 (2020.07.18.1321)\r\n  FEATURES\r\n    * Add
-      ability to write custom build path parameters\r\n  CHANGES\r\n    * Change
-      build path parameters collection using BuildPathAttribute\r\n  KNOWN ISSUES\r\n   
-      * WebGL target path construction not implemented\r\n\r\nv1.0.12 (2020.07.16.0140)\r\n 
-      KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n  FIXES\r\n   
-      * Implement Android target path construction\r\n    * Implement iOS target
-      path construction\r\n\r\nv1.0.11 (2020.07.14.1441)\r\n  FEATURES\r\n    * Insert
-      new release version if there's any unreleased\r\n  KNOWN ISSUES\r\n    * Android
-      target path construction not implemented\r\n    * iOS target path construction
-      not implemented\r\n    * WebGL target path construction not implemented\r\n\r\nv1.0.10
-      (2020.07.08.1621)\r\n  FEATURES\r\n    * Add REMOVED note type\r\n    * Add
-      YANKED to version\r\n    * Add unreleased versions\r\n    * Add DEPRECATED
-      note type\r\n    * Save to CHANGELOG.md\r\n  KNOWN ISSUES\r\n    * Android
-      target path construction not implemented\r\n    * iOS target path construction
-      not implemented\r\n    * WebGL target path construction not implemented\r\n\r\nv1.0.9
+      path construction\r\n\r\nv1.2.0 (2025.01.27.1138)\r\n  CHANGES\r\n    * Remove
+      custom Smart format, use com.unity.localization instead\r\n  KNOWN ISSUES\r\n   
+      * WebGL target path construction not implemented\r\n\r\nv1.1.5 (2021.02.19.1952)\r\n 
+      FIXES\r\n    * Fix\r\n  KNOWN ISSUES\r\n    * WebGL target path construction
+      not implemented\r\n\r\nv1.1.4 [YANKED] (2021.02.19.1855)\r\n  FIXES\r\n   
+      * Fix\r\n  KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.1.3
+      (2021.02.19.1841)\r\n  FIXES\r\n    * Delete unsupported symbols from path\r\n 
+      KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.1.2
+      [YANKED] (2020.07.19.1440)\r\n  IMPROVEMENTS\r\n    * Higher reflection speed\r\n 
+      FIXES\r\n    * Fix adding parameter instead of key\r\n  KNOWN ISSUES\r\n   
+      * WebGL target path construction not implemented\r\n\r\nv1.1.1 (2020.07.18.1321)\r\n 
+      FEATURES\r\n    * Add ability to write custom build path parameters\r\n  CHANGES\r\n   
+      * Change build path parameters collection using BuildPathAttribute\r\n  KNOWN
+      ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.0.12
+      (2020.07.16.0140)\r\n  KNOWN ISSUES\r\n    * WebGL target path construction
+      not implemented\r\n  FIXES\r\n    * Implement Android target path construction\r\n   
+      * Implement iOS target path construction\r\n\r\nv1.0.11 (2020.07.14.1441)\r\n 
+      FEATURES\r\n    * Insert new release version if there's any unreleased\r\n 
+      KNOWN ISSUES\r\n    * Android target path construction not implemented\r\n   
+      * iOS target path construction not implemented\r\n    * WebGL target path construction
+      not implemented\r\n\r\nv1.0.10 (2020.07.08.1621)\r\n  FEATURES\r\n    * Add
+      REMOVED note type\r\n    * Add YANKED to version\r\n    * Add unreleased versions\r\n   
+      * Add DEPRECATED note type\r\n    * Save to CHANGELOG.md\r\n  KNOWN ISSUES\r\n   
+      * Android target path construction not implemented\r\n    * iOS target path
+      construction not implemented\r\n    * WebGL target path construction not implemented\r\n\r\nv1.0.9
       (2020.07.04.1331)\r\n  FIXES\r\n    * Fix smartFormat error while parsing uncommon
       symbols\r\n\r\nv1.0.8 (2020.07.03.1842)\r\n  FEATURES\r\n    * Build path editor\r\n 
       FIXES\r\n    * Clone Known Issues from last version instead of copying references\r\n   

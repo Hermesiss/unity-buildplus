@@ -10,7 +10,7 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using Trismegistus.SmartFormat;
+using UnityEngine.Localization.SmartFormat;
 using Note = Trismegistus.BuildPlus.Version.Note;
 
 namespace Trismegistus.BuildPlus {

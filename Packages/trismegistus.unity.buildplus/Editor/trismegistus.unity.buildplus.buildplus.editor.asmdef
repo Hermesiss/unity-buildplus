@@ -1,8 +1,8 @@
 {
     "name": "trismegistus.unity.buildplus.editor",
     "references": [
-        "GUID:6f198d82a3b69a04bad1d78051ac4af9",
-        "GUID:e1e23cf673df3d6419580867b00381eb"
+        "trismegistus.unity.buildplus",
+        "Unity.Localization"
     ],
     "includePlatforms": [
         "Editor"

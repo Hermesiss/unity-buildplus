@@ -26,7 +26,7 @@ namespace Trismegistus.BuildPlus {
 		public Build() {
 			editorSettings = new EditorSettings {
 				saveToPlayerSettings = true,
-				buildPathScheme = "{p_path}/Build/{p_name}_{ver}"
+				buildPathScheme = "{p_path}/Builds/{p_name}_{ver}"
 			};
 		}
 
