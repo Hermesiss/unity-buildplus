@@ -18,6 +18,8 @@ namespace Trismegistus.BuildPlus {
 		}
 
 		private readonly Build _build;
+		
+		private readonly bool _compact;
 
 		private readonly string _filePath;
 
@@ -50,8 +52,9 @@ namespace Trismegistus.BuildPlus {
 				}
 			};
 
-		public ChangelogBuilder(Build build) {
+		public ChangelogBuilder(Build build, bool compact) {
 			_build = build;
+			_compact = compact;
 			_filePath = Path.Combine(new DirectoryInfo(Application.dataPath).Parent.FullName, "CHANGELOG.md");
 		}
 
@@ -104,11 +107,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 			var filtered = notes.Where(x => _typeNoteLink[changeType].Contains(x.category)).ToArray();
 			if (filtered.Length == 0) return "";
+			
+			if (!_compact)
+			{
+				sb.AppendLine($"\n### {changeType}\n");
+			}
+			
+			
 
-			sb.AppendLine($"\n### {changeType}\n");
-
-			foreach (var b in filtered) {
-				sb.AppendLine($"- {b.description}");
+			foreach (var b in filtered)
+			{
+				sb.Append("- ");
+				if (_compact)
+				{
+					sb.Append($"{changeType}: ");
+				}
+				
+				sb.AppendLine(b.description);
 			}
 
 			return sb.ToString();

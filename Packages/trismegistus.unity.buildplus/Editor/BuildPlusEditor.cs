@@ -137,7 +137,7 @@ namespace Trismegistus.BuildPlus {
 		void Save() {
 			UpdateDict();
 			File.WriteAllText(kXmlPath, build.ToXML());
-			BuildPlusSO bso = null;
+			BuildPlusSO bso;
 			if (File.Exists(kAssetPath))
 				bso = AssetDatabase.LoadAssetAtPath(kAssetPath, typeof(BuildPlusSO)) as BuildPlusSO;
 			else {
@@ -164,7 +164,7 @@ namespace Trismegistus.BuildPlus {
 			}
 
 			if (build.editorSettings.saveToChangelogMd) {
-				var b = new ChangelogBuilder(build);
+				var b = new ChangelogBuilder(build, build.editorSettings.compactChangelog);
 				b.Build();
 			}
 		}
@@ -496,10 +496,17 @@ namespace Trismegistus.BuildPlus {
 				myStyle.alignment = TextAnchor.MiddleRight;
 
 				// save to CHANGELOG.md
-				EditorGUILayout.BeginHorizontal();
+				var options = new[] {GUILayout.ExpandWidth(false), GUILayout.Width(300)};
+				EditorGUILayout.BeginHorizontal(options);
 				{
 					build.editorSettings.saveToChangelogMd =
 						GUILayout.Toggle(build.editorSettings.saveToChangelogMd, "Save to CHANGELOG.md");
+					
+					if (build.editorSettings.saveToChangelogMd)
+					{
+						build.editorSettings.compactChangelog =
+							GUILayout.Toggle(build.editorSettings.compactChangelog, "Compact");
+					}
 				}
 
 				EditorGUILayout.EndHorizontal();

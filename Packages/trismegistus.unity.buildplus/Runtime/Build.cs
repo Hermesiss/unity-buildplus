@@ -15,6 +15,7 @@ namespace Trismegistus.BuildPlus {
 		public string packageJsonPath;
 		public string buildPathScheme;
 		public bool saveToChangelogMd;
+		public bool compactChangelog;
 	}
 
 	[Serializable]

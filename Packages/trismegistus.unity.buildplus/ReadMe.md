@@ -1,5 +1,7 @@
 # Build+ Unity Extension
 
+[![openupm](https://img.shields.io/npm/v/trismegistus.unity.buildplus?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/trismegistus.unity.buildplus/) [![openupm](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=downloads&query=%24.downloads&suffix=%2Fmonth&url=https%3A%2F%2Fpackage.openupm.com%2Fdownloads%2Fpoint%2Flast-month%2Ftrismegistus.unity.buildplus)](https://openupm.com/packages/trismegistus.unity.buildplus/)
+
 ![screenshot](https://raw.githubusercontent.com/Hermesiss/unity-buildplus/master/Packages/trismegistus.unity.buildplus/Documentation~/images/mainWindow.jpg)
 
 ## What is this?
@@ -39,7 +41,16 @@ Handled automatically when installed from registry
 
 ## Installation
 
-Install via [OpenUPM](https://openupm.com/packages/trismegistus.unity.buildplus/)
+### OpenUPM
+
+This is the easiest way and you can update to new versions quickly: [OpenUPM](https://openupm.com/packages/trismegistus.unity.buildplus/)
+
+### From git URL
+
+- Open package manager
+- Select Plus -> From git URL
+- Paste `https://github.com/Hermesiss/unity-buildplus.git?path=/Packages/trismegistus.unity.buildplus`
+- Press install
 
 ## Add your own build path parameters
 

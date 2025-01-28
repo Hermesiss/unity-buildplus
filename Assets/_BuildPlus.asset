@@ -16,17 +16,17 @@ MonoBehaviour:
     xmlVersion: 0
     versions:
     - major: 1
-      minor: 1
-      build: 7
+      minor: 2
+      build: 1
       revision: 
-      dateString: 2020.07.18.1329
+      dateString: 2025.01.28.1849
       yanked: 0
-      unreleased: 1
+      unreleased: 0
       notes:
-      - category: 1
-        description: Add git-based build variables
-      - category: 3
-        description: Implement WebGL target path construction
+      - category: 2
+        description: Add "Compact" changelog mode #2
+      - category: 5
+        description: WebGL target path construction not implemented
     - major: 1
       minor: 2
       build: 0
@@ -39,6 +39,18 @@ MonoBehaviour:
         description: Remove custom Smart format, use com.unity.localization instead
       - category: 5
         description: WebGL target path construction not implemented
+    - major: 1
+      minor: 1
+      build: 8
+      revision: 
+      dateString: 2020.07.18.1329
+      yanked: 0
+      unreleased: 1
+      notes:
+      - category: 1
+        description: Add git-based build variables
+      - category: 3
+        description: Implement WebGL target path construction
     - major: 1
       minor: 1
       build: 5
@@ -352,11 +364,14 @@ MonoBehaviour:
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
       buildPathScheme: '{p_path}/Builds/{p_name}_{ver}'
       saveToChangelogMd: 1
-    releaseNotes: "RELEASE NOTES\r\n\r\nv***1.1.7 (2020.07.18.1329)\r\n  FEATURES\r\n   
-      * Add git-based build variables\r\n  FIXES\r\n    * Implement WebGL target
-      path construction\r\n\r\nv1.2.0 (2025.01.27.1138)\r\n  CHANGES\r\n    * Remove
-      custom Smart format, use com.unity.localization instead\r\n  KNOWN ISSUES\r\n   
-      * WebGL target path construction not implemented\r\n\r\nv1.1.5 (2021.02.19.1952)\r\n 
+      compactChangelog: 0
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.2.1 (2025.01.28.1849)\r\n  IMPROVEMENTS\r\n   
+      * Add \"Compact\" changelog mode #2\r\n  KNOWN ISSUES\r\n    * WebGL target
+      path construction not implemented\r\n\r\nv1.2.0 (2025.01.27.1138)\r\n  CHANGES\r\n   
+      * Remove custom Smart format, use com.unity.localization instead\r\n  KNOWN
+      ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv***1.1.8
+      (2020.07.18.1329)\r\n  FEATURES\r\n    * Add git-based build variables\r\n 
+      FIXES\r\n    * Implement WebGL target path construction\r\n\r\nv1.1.5 (2021.02.19.1952)\r\n 
       FIXES\r\n    * Fix\r\n  KNOWN ISSUES\r\n    * WebGL target path construction
       not implemented\r\n\r\nv1.1.4 [YANKED] (2021.02.19.1855)\r\n  FIXES\r\n   
       * Fix\r\n  KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.1.3

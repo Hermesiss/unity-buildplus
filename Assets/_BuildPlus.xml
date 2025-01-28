@@ -3,21 +3,21 @@
   <versions>
     <Version>
       <major>1</major>
-      <minor>1</minor>
-      <build>7</build>
+      <minor>2</minor>
+      <build>1</build>
       <revision />
-      <date>2020-07-18T13:29:00</date>
-      <dateString>2020.07.18.1329</dateString>
+      <date>2025-01-28T18:49:00</date>
+      <dateString>2025.01.28.1849</dateString>
       <yanked>false</yanked>
-      <unreleased>true</unreleased>
+      <unreleased>false</unreleased>
       <notes>
         <Note>
-          <category>Features</category>
-          <description>Add git-based build variables</description>
+          <category>Improvements</category>
+          <description>Add "Compact" changelog mode #2</description>
         </Note>
         <Note>
-          <category>Fixes</category>
-          <description>Implement WebGL target path construction</description>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
         </Note>
       </notes>
     </Version>
@@ -38,6 +38,26 @@
         <Note>
           <category>KnownIssues</category>
           <description>WebGL target path construction not implemented</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>1</minor>
+      <build>8</build>
+      <revision />
+      <date>2020-07-18T13:29:00</date>
+      <dateString>2020.07.18.1329</dateString>
+      <yanked>false</yanked>
+      <unreleased>true</unreleased>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Add git-based build variables</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Implement WebGL target path construction</description>
         </Note>
       </notes>
     </Version>
@@ -568,6 +588,7 @@
     <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
     <buildPathScheme>{p_path}/Builds/{p_name}_{ver}</buildPathScheme>
     <saveToChangelogMd>true</saveToChangelogMd>
+    <compactChangelog>false</compactChangelog>
   </editorSettings>
   <todo>
     <major>0</major>
