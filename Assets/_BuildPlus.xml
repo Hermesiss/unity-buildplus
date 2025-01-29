@@ -3,6 +3,34 @@
   <versions>
     <Version>
       <major>1</major>
+      <minor>3</minor>
+      <build>0</build>
+      <revision />
+      <date>2025-01-29T10:46:00</date>
+      <dateString>2025.01.29.1046</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Fixes</category>
+          <description>Remove SmartFormat from readme</description>
+        </Note>
+        <Note>
+          <category>Changes</category>
+          <description>Bump minimum version to 2019.4 in package settings</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add git-based build variables</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
       <minor>2</minor>
       <build>1</build>
       <revision />
@@ -38,26 +66,6 @@
         <Note>
           <category>KnownIssues</category>
           <description>WebGL target path construction not implemented</description>
-        </Note>
-      </notes>
-    </Version>
-    <Version>
-      <major>1</major>
-      <minor>1</minor>
-      <build>8</build>
-      <revision />
-      <date>2020-07-18T13:29:00</date>
-      <dateString>2020.07.18.1329</dateString>
-      <yanked>false</yanked>
-      <unreleased>true</unreleased>
-      <notes>
-        <Note>
-          <category>Features</category>
-          <description>Add git-based build variables</description>
-        </Note>
-        <Note>
-          <category>Fixes</category>
-          <description>Implement WebGL target path construction</description>
         </Note>
       </notes>
     </Version>
@@ -586,9 +594,9 @@
     <saveToPlayerSettings>true</saveToPlayerSettings>
     <saveToPackageJson>true</saveToPackageJson>
     <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
-    <buildPathScheme>{p_path}/Builds/{p_name}_{ver}</buildPathScheme>
+    <buildPathScheme>{p_path}/Builds/{p_name}_{ver}_{git_branch}_{git_commit_hash_short}</buildPathScheme>
     <saveToChangelogMd>true</saveToChangelogMd>
-    <compactChangelog>false</compactChangelog>
+    <compactChangelog>true</compactChangelog>
   </editorSettings>
   <todo>
     <major>0</major>

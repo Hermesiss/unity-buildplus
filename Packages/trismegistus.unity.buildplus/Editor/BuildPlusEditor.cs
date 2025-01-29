@@ -638,10 +638,10 @@ namespace Trismegistus.BuildPlus {
 								$"Building for platform {EditorUserBuildSettings.activeBuildTarget} is not yet supported, " +
 								"feel free to write an Issue or contribute: https://github.com/Hermesiss/unity-buildplus");
 					}
-				
 				return Path.GetFullPath(path.ReplaceMultiple('_'));
 			}
 			catch (Exception e) {
+				Debug.LogError(e);
 				return $"ERROR: {e}";
 			}
 		}
