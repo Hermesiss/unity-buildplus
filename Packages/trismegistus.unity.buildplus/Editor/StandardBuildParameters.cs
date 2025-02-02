@@ -30,5 +30,17 @@ namespace Trismegistus.BuildPlus {
 			return new PathParameter("platform", "Project", EditorUserBuildSettings.activeBuildTarget.ToString(),
 				"Current build target");
 		}
+		
+		[BuildPath]
+		public static PathParameter BuildType() {
+			return new PathParameter("build_type", "Project", EditorUserBuildSettings.development ? "Development" : "Release",
+				"Build type");
+		}
+		
+		[BuildPath]
+		public static PathParameter BuildTarget() {
+			return new PathParameter("build_target", "Project", EditorUserBuildSettings.activeBuildTarget.ToString(),
+				"Build target");
+		}
 	}
 }

@@ -17,6 +17,26 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 3
+      build: 1
+      revision: 
+      dateString: 2025.02.02.1434
+      yanked: 0
+      unreleased: 0
+      notes:
+      - category: 1
+        description: Add Linux build support
+      - category: 1
+        description: Add feedback button
+      - category: 1
+        description: Add build_type (development or release) parameter
+      - category: 1
+        description: Add build_target (target platform) parameter
+      - category: 2
+        description: Show an Error message for unsupported target
+      - category: 5
+        description: WebGL target path construction not implemented
+    - major: 1
+      minor: 3
       build: 0
       revision: 
       dateString: 2025.01.29.1046
@@ -366,17 +386,22 @@ MonoBehaviour:
       saveToPlayerSettings: 1
       saveToPackageJson: 1
       packageJsonPath: Packages\trismegistus.unity.buildplus\package.json
-      buildPathScheme: '{p_path}/Builds/{p_name}_{ver}_{git_branch}_{git_commit_hash_short}'
+      buildPathScheme: '{p_path}/Builds/{build_target}/{p_name}_{ver}_{git_branch}_{git_commit_hash_short}'
       saveToChangelogMd: 1
       compactChangelog: 1
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.3.0 (2025.01.29.1046)\r\n  FIXES\r\n   
-      * Remove SmartFormat from readme\r\n  CHANGES\r\n    * Bump minimum version
-      to 2019.4 in package settings\r\n  KNOWN ISSUES\r\n    * WebGL target path
-      construction not implemented\r\n  FEATURES\r\n    * Add git-based build variables\r\n\r\nv1.2.1
-      (2025.01.28.1849)\r\n  IMPROVEMENTS\r\n    * Add \"Compact\" changelog mode
-      #2\r\n  KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.2.0
-      (2025.01.27.1138)\r\n  CHANGES\r\n    * Remove custom Smart format, use com.unity.localization
-      instead\r\n  KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.1.5
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.3.1 (2025.02.02.1434)\r\n  FEATURES\r\n   
+      * Add Linux build support\r\n    * Add feedback button\r\n    * Add build_type
+      (development or release) parameter\r\n    * Add build_target (target platform)
+      parameter\r\n  IMPROVEMENTS\r\n    * Show an Error message for unsupported
+      target\r\n  KNOWN ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.3.0
+      (2025.01.29.1046)\r\n  FIXES\r\n    * Remove SmartFormat from readme\r\n  CHANGES\r\n   
+      * Bump minimum version to 2019.4 in package settings\r\n  KNOWN ISSUES\r\n   
+      * WebGL target path construction not implemented\r\n  FEATURES\r\n    * Add
+      git-based build variables\r\n\r\nv1.2.1 (2025.01.28.1849)\r\n  IMPROVEMENTS\r\n   
+      * Add \"Compact\" changelog mode #2\r\n  KNOWN ISSUES\r\n    * WebGL target
+      path construction not implemented\r\n\r\nv1.2.0 (2025.01.27.1138)\r\n  CHANGES\r\n   
+      * Remove custom Smart format, use com.unity.localization instead\r\n  KNOWN
+      ISSUES\r\n    * WebGL target path construction not implemented\r\n\r\nv1.1.5
       (2021.02.19.1952)\r\n  FIXES\r\n    * Fix\r\n  KNOWN ISSUES\r\n    * WebGL
       target path construction not implemented\r\n\r\nv1.1.4 [YANKED] (2021.02.19.1855)\r\n 
       FIXES\r\n    * Fix\r\n  KNOWN ISSUES\r\n    * WebGL target path construction

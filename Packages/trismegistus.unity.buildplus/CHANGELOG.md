@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 1.3.1 - 2025-02-02
+
+- Added: Add Linux build support
+- Added: Add feedback button
+- Added: Add build_type (development or release) parameter
+- Added: Add build_target (target platform) parameter
+- Changed: Show an Error message for unsupported target
+- Security: WebGL target path construction not implemented
+
 ## 1.3.0 - 2025-01-29
 
 - Added: Add git-based build variables

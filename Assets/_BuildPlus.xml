@@ -4,6 +4,42 @@
     <Version>
       <major>1</major>
       <minor>3</minor>
+      <build>1</build>
+      <revision />
+      <date>2025-02-02T14:34:00</date>
+      <dateString>2025.02.02.1434</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>Add Linux build support</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add feedback button</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add build_type (development or release) parameter</description>
+        </Note>
+        <Note>
+          <category>Features</category>
+          <description>Add build_target (target platform) parameter</description>
+        </Note>
+        <Note>
+          <category>Improvements</category>
+          <description>Show an Error message for unsupported target</description>
+        </Note>
+        <Note>
+          <category>KnownIssues</category>
+          <description>WebGL target path construction not implemented</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>3</minor>
       <build>0</build>
       <revision />
       <date>2025-01-29T10:46:00</date>
@@ -594,7 +630,7 @@
     <saveToPlayerSettings>true</saveToPlayerSettings>
     <saveToPackageJson>true</saveToPackageJson>
     <packageJsonPath>Packages\trismegistus.unity.buildplus\package.json</packageJsonPath>
-    <buildPathScheme>{p_path}/Builds/{p_name}_{ver}_{git_branch}_{git_commit_hash_short}</buildPathScheme>
+    <buildPathScheme>{p_path}/Builds/{build_target}/{p_name}_{ver}_{git_branch}_{git_commit_hash_short}</buildPathScheme>
     <saveToChangelogMd>true</saveToChangelogMd>
     <compactChangelog>true</compactChangelog>
   </editorSettings>
