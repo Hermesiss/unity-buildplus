@@ -736,6 +736,7 @@ namespace Trismegistus.BuildPlus
                 case BuildTarget.Android:
                 case BuildTarget.iOS:
                 case BuildTarget.StandaloneLinux64:
+                case BuildTarget.WebGL:
                     return true;
                 default:
                     return false;
@@ -764,6 +765,9 @@ namespace Trismegistus.BuildPlus
                             break;
                         case BuildTarget.StandaloneLinux64:
                             path += $"/{Application.productName.ReplaceUnsupportedSymbols()}.x86_64";
+                            break;
+                        case BuildTarget.WebGL:
+                            path += "/";
                             break;
                         default:
                             return

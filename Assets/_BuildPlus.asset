@@ -17,6 +17,19 @@ MonoBehaviour:
     versions:
     - major: 1
       minor: 3
+      build: 2
+      revision: 
+      dateString: 2025.02.18.1230
+      yanked: 0
+      unreleased: 0
+      notes:
+      - category: 1
+        description: WebGL target build
+      - category: 3
+        description: Errors when git is not installed or the project is not inside
+          git repo
+    - major: 1
+      minor: 3
       build: 1
       revision: 
       dateString: 2025.02.02.1434
@@ -389,7 +402,9 @@ MonoBehaviour:
       buildPathScheme: '{p_path}/Builds/{build_target}/{p_name}_{ver}_{git_branch}_{git_commit_hash_short}'
       saveToChangelogMd: 1
       compactChangelog: 1
-    releaseNotes: "RELEASE NOTES\r\n\r\nv1.3.1 (2025.02.02.1434)\r\n  FEATURES\r\n   
+    releaseNotes: "RELEASE NOTES\r\n\r\nv1.3.2 (2025.02.18.1230)\r\n  FEATURES\r\n   
+      * WebGL target build\r\n  FIXES\r\n    * Errors when git is not installed or
+      the project is not inside git repo\r\n\r\nv1.3.1 (2025.02.02.1434)\r\n  FEATURES\r\n   
       * Add Linux build support\r\n    * Add feedback button\r\n    * Add build_type
       (development or release) parameter\r\n    * Add build_target (target platform)
       parameter\r\n  IMPROVEMENTS\r\n    * Show an Error message for unsupported

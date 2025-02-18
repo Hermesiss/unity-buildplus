@@ -4,6 +4,26 @@
     <Version>
       <major>1</major>
       <minor>3</minor>
+      <build>2</build>
+      <revision />
+      <date>2025-02-18T12:30:00</date>
+      <dateString>2025.02.18.1230</dateString>
+      <yanked>false</yanked>
+      <unreleased>false</unreleased>
+      <notes>
+        <Note>
+          <category>Features</category>
+          <description>WebGL target build</description>
+        </Note>
+        <Note>
+          <category>Fixes</category>
+          <description>Errors when git is not installed or the project is not inside git repo</description>
+        </Note>
+      </notes>
+    </Version>
+    <Version>
+      <major>1</major>
+      <minor>3</minor>
       <build>1</build>
       <revision />
       <date>2025-02-02T14:34:00</date>

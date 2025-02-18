@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 1.3.2 - 2025-02-18
+
+- Added: WebGL target build
+- Fixed: Errors when git is not installed or the project is not inside git repo
+
 ## 1.3.1 - 2025-02-02
 
 - Added: Add Linux build support
